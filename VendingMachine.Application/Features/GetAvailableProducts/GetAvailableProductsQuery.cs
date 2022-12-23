@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace VendingMachine.Application.GetAvailableProducts
+namespace VendingMachine.Application.Features.GetAvailableProducts
 {
     public class GetAvailableProductsQuery : IRequest<Unit>
     {

@@ -5,18 +5,23 @@ namespace VendingMachine.Infrastructure.Persistence;
 
 public class ProductRepository : IProductRepository
 {
-    private List<Product> _products = new()
+    public ProductRepository()
     {
-        new Product {Name = "Tea", Price = 1.30m, Portions = 10},
-        new Product {Name = "Espresso", Price = 1.80m, Portions = 20},
-        new Product {Name = "Juice", Price = 1.80m, Portions = 20},
-        new Product {Name = "Chicken Soup", Price = 1.80m, Portions = 15}
-    };
+        Products = new List<Product>
+        {
+            new() {Name = "Tea", Price = 1.30m, Portions = 10},
+            new() {Name = "Espresso", Price = 1.80m, Portions = 20},
+            new() {Name = "Juice", Price = 1.80m, Portions = 20},
+            new() {Name = "Chicken Soup", Price = 1.80m, Portions = 15}
+        };
+    }
+
+    private List<Product> Products { get; set; }
 
     public void DisplayAllProducts()
     {
         Console.WriteLine("Product: Available Portions");
-        foreach (var product in _products.Where(product => product.Portions > 0))
+        foreach (var product in Products.Where(product => product.Portions > 0))
         {
             Console.WriteLine(product.ToNameAndPortions());
         }
