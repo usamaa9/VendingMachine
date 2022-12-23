@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using VendingMachine.Application.Enumerations;
+using VendingMachine.Application.Extensions;
+using VendingMachine.Application.Features.AcceptCoin;
 using VendingMachine.Application.Features.GetAvailableProducts;
 using VendingMachine.Application.Mediator;
 
@@ -58,6 +60,7 @@ public class App
         {
             case "1":
                 Console.WriteLine("You selected Insert coins");
+                await InsertCoins();
                 break;
 
             case "2":
@@ -88,6 +91,42 @@ public class App
         Console.WriteLine();
 
         return choice == "6";
+    }
+
+    private async Task InsertCoins()
+    {
+        var coinType = default(CoinType);
+        var coinQuantity = 0;
+        while (true)
+        {
+            Console.Write("Enter coin type (10c, 20c, 50c, 1e): ");
+            var coinTypeString = Console.ReadLine();
+
+            var enumValues = Enum.GetValues(typeof(CoinType)).Cast<CoinType>();
+
+            coinType = enumValues.FirstOrDefault(v => string.Equals(v.GetDescription(), coinTypeString, StringComparison.OrdinalIgnoreCase));
+            if (coinType == default)
+            {
+                Console.WriteLine("Invalid coin type.");
+            }
+            break;
+        }
+
+        while (true)
+        {
+            Console.Write("Enter coin quantity: ");
+            var coinQuantityString = Console.ReadLine();
+
+            if (!int.TryParse(coinQuantityString, out var quantity))
+            {
+                Console.WriteLine("Invalid coin quantity.");
+            }
+            coinQuantity = quantity;
+            break;
+        }
+
+        var command = new AcceptCoinCommand();
+        await _commandBus.SendAsync<AcceptCoinCommand, Unit>(command);
     }
 
     private async Task ShowAvailableProducts()
