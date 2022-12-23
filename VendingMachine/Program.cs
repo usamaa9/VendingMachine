@@ -23,8 +23,10 @@ internal class Program
     {
         IServiceCollection services = new ServiceCollection();
 
+        var assemblies = GetAllAssemblies();
+
         // Add MediatR.
-        services.AddMediatR(Assembly.GetExecutingAssembly());
+        services.AddMediatR(assemblies);
 
         // Add MediatR service.
         services.AddTransient<ICommandBus, CommandBus>();
@@ -35,5 +37,19 @@ internal class Program
         // Add the App to run.
         services.AddTransient<App>();
         return services;
+    }
+
+    private static Assembly[] GetAllAssemblies()
+    {
+        // Get the currently executing assembly
+        var executingAssembly = Assembly.GetExecutingAssembly();
+
+        // Get all the assemblies in the solution
+        var referencedAssemblies = executingAssembly.GetReferencedAssemblies();
+
+        // Create a list to store the assemblies
+        return referencedAssemblies
+            .Select(Assembly.Load)
+            .ToArray();
     }
 }
