@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using VendingMachine.Enumerations;
-using VendingMachine.GetAvailableProducts;
-using VendingMachine.Mediator;
+using VendingMachine.Application.Enumerations;
+using VendingMachine.Application.GetAvailableProducts;
+using VendingMachine.Application.Mediator;
 
-namespace VendingMachine;
+namespace VendingMachine.App;
 
 public class App
 {

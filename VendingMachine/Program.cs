@@ -1,11 +1,12 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using VendingMachine.Mediator;
-using VendingMachine.Persistence;
-using VendingMachine.Persistence.Implementations;
+using VendingMachine.App.Mediator;
+using VendingMachine.Application.Mediator;
+using VendingMachine.Application.Persistence;
+using VendingMachine.Infrastructure.Persistence;
 
-namespace VendingMachine;
+namespace VendingMachine.App;
 
 internal class Program
 {

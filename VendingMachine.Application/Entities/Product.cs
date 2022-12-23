@@ -1,4 +1,4 @@
-﻿namespace VendingMachine.Entities;
+﻿namespace VendingMachine.Application.Entities;
 
 public class Product
 {

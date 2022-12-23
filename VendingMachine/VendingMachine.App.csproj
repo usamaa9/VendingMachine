@@ -13,4 +13,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VendingMachine.Application\VendingMachine.Application.csproj" />
+    <ProjectReference Include="..\VendingMachine.Infrastructure\VendingMachine.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

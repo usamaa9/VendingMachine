@@ -1,4 +1,4 @@
-﻿namespace VendingMachine.Enumerations;
+﻿namespace VendingMachine.Application.Enumerations;
 
 public class MenuOptions
 {

@@ -1,6 +1,7 @@
-﻿using VendingMachine.Entities;
+﻿using VendingMachine.Application.Entities;
+using VendingMachine.Application.Persistence;
 
-namespace VendingMachine.Persistence.Implementations;
+namespace VendingMachine.Infrastructure.Persistence;
 
 public class ProductRepository : IProductRepository
 {

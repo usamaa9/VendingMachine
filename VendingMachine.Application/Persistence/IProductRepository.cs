@@ -1,4 +1,4 @@
-﻿namespace VendingMachine.Persistence;
+﻿namespace VendingMachine.Application.Persistence;
 
 public interface IProductRepository
 {
