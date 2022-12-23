@@ -2,17 +2,20 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using VendingMachine.Mediator;
+using VendingMachine.Persistence;
+using VendingMachine.Persistence.Implementations;
 
 namespace VendingMachine;
 
 internal class Program
 {
-    private static void Main()
+    private static async Task Main()
     {
         var services = ConfigureServices();
         var serviceProvider = services.BuildServiceProvider();
 
-        serviceProvider.GetService<App>()!.Run();
+        var app = serviceProvider.GetService<App>()!;
+        await app.Run();
     }
 
     private static IServiceCollection ConfigureServices()
@@ -24,6 +27,9 @@ internal class Program
 
         // Add MediatR service.
         services.AddTransient<ICommandBus, CommandBus>();
+
+        // Add repositories
+        services.AddTransient<IProductRepository, ProductRepository>();
 
         // Add the App to run.
         services.AddTransient<App>();

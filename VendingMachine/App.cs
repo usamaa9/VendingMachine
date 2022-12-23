@@ -1,4 +1,6 @@
-﻿using VendingMachine.Enumerations;
+﻿using MediatR;
+using VendingMachine.Enumerations;
+using VendingMachine.GetAvailableProducts;
 using VendingMachine.Mediator;
 
 namespace VendingMachine;
@@ -12,7 +14,7 @@ public class App
         _commandBus = commandBus;
     }
 
-    public void Run()
+    public async Task Run()
     {
         Console.WriteLine("Hello World");
 
@@ -24,7 +26,7 @@ public class App
 
             var choice = GetUserInput();
 
-            isExitChoice = HandleChoice(choice);
+            isExitChoice = await HandleChoiceAsync(choice);
         }
     }
 
@@ -48,7 +50,7 @@ public class App
         return input ?? "-1";
     }
 
-    private static bool HandleChoice(string choice)
+    private async Task<bool> HandleChoiceAsync(string choice)
     {
         Console.WriteLine();
 
@@ -68,6 +70,7 @@ public class App
 
             case "4":
                 Console.WriteLine("You selected Show available products");
+                await ShowAvailableProducts();
                 break;
 
             case "5":
@@ -85,5 +88,11 @@ public class App
         Console.WriteLine();
 
         return choice == "6";
+    }
+
+    private async Task ShowAvailableProducts()
+    {
+        var query = new GetAvailableProductsQuery();
+        await _commandBus.SendAsync<GetAvailableProductsQuery, Unit>(query);
     }
 }
