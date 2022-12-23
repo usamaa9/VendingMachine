@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.GetAvailableProducts;
+using VendingMachine.Application.Features.GetAvailableProducts;
 using VendingMachine.Application.Mediator;
 
 namespace VendingMachine.App;
