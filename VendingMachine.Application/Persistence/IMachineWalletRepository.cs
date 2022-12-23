@@ -1,5 +1,5 @@
 ﻿namespace VendingMachine.Application.Persistence;
 
-public interface IWalletRepository
+public interface IMachineWalletRepository
 {
 }

@@ -24,4 +24,9 @@ public class CommandBus : ICommandBus
 
         return mediatorResponse;
     }
+
+    public async Task PublishAsync<TNotification>(TNotification notification) where TNotification : INotification
+    {
+        return await _mediator.Publish(notification);
+    }
 }

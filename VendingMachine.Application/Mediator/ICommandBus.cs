@@ -13,4 +13,6 @@ public interface ICommandBus
     /// <returns>The response.</returns>
     Task<dynamic> SendAsync<TCommand, TResponse>(
         TCommand command) where TCommand : IRequest<TResponse>;
+
+    Task PublishAsync<TNotification>(TNotification notification) where TNotification : INotification;
 }

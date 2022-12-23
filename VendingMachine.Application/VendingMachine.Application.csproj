@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Features\AcceptCoin\" />
+    <Folder Include="Features\Events\" />
   </ItemGroup>
 
 </Project>
