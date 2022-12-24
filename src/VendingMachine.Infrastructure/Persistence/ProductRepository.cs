@@ -7,7 +7,7 @@ public class ProductRepository : IProductRepository
 {
   public ProductRepository()
   {
-    Products = new List<Product>
+    Products = new List<VendingMachineProduct>
     {
       new() { Name = "Tea", Price = 1.30m, Portions = 10 },
       new() { Name = "Espresso", Price = 1.80m, Portions = 20 },
@@ -16,7 +16,7 @@ public class ProductRepository : IProductRepository
     };
   }
 
-  private List<Product> Products { get; }
+  private List<VendingMachineProduct> Products { get; }
 
   public void DisplayAllProducts()
   {
@@ -28,5 +28,22 @@ public class ProductRepository : IProductRepository
 
     Console.WriteLine("----------------------|-------------|-------------------");
     Console.WriteLine("End of list.");
+  }
+
+  public Product? GetProductWithName(string? name)
+  {
+    if (string.IsNullOrEmpty(name)) return null;
+
+    var vendingMachineProduct =
+      Products.FirstOrDefault(product => product.Name!.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+    if (vendingMachineProduct == null) return null;
+
+    var product = new Product
+    {
+      Name = vendingMachineProduct.Name,
+      Price = vendingMachineProduct.Price
+    };
+    return product;
   }
 }

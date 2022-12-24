@@ -66,7 +66,7 @@ public partial class App
         break;
 
       case "3":
-        Console.WriteLine($"You selected {MenuOptions.BuyProduct}");
+        await BuyProduct();
         break;
 
       case "4":
