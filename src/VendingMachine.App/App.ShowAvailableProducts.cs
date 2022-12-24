@@ -7,7 +7,7 @@ public partial class App
 {
   private async Task ShowAvailableProducts()
   {
-    var query = new GetAvailableProductsQuery();
-    await _commandBus.SendAsync<GetAvailableProductsQuery, Unit>(query);
+    var query = new ShowAvailableProductsQuery();
+    await _commandBus.SendAsync<ShowAvailableProductsQuery, Unit>(query);
   }
 }
