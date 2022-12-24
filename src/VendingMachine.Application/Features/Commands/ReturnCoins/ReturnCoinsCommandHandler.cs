@@ -5,17 +5,17 @@ namespace VendingMachine.Application.Features.Commands.ReturnCoins;
 
 public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Unit>
 {
-  private readonly IUserWallet _userWalletRepository;
+  private readonly IUserWallet _userWallet;
 
-  public ReturnCoinsCommandHandler(IUserWallet userWalletRepository)
+  public ReturnCoinsCommandHandler(IUserWallet userWallet)
   {
-    _userWalletRepository = userWalletRepository;
+    _userWallet = userWallet;
   }
 
   public Task<Unit> Handle(ReturnCoinsCommand request, CancellationToken cancellationToken)
   {
     Console.WriteLine("Returning all coins to user.");
-    _userWalletRepository.RemoveAllCoins();
+    _userWallet.RemoveAllCoins();
     return Task.FromResult(Unit.Value);
   }
 }

@@ -2,6 +2,6 @@
 
 namespace VendingMachine.Infrastructure.Persistence;
 
-public class MachineWallet : IMachineWalletRepository
+public class MachineWallet : IMachineWallet
 {
 }

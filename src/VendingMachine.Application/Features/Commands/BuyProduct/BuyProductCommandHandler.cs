@@ -7,23 +7,23 @@ namespace VendingMachine.Application.Features.Commands.BuyProduct;
 public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
 {
   private readonly ICommandBus _commandBus;
-  private readonly IProductStore _productRepository;
-  private readonly IUserWallet _userWalletRepository;
+  private readonly IProductStore _productStore;
+  private readonly IUserWallet _userWallet;
 
 
   public BuyProductCommandHandler(
-    IProductStore productRepository,
-    IUserWallet userWalletRepository,
+    IProductStore productStore,
+    IUserWallet userWallet,
     ICommandBus commandBus)
   {
-    _productRepository = productRepository;
-    _userWalletRepository = userWalletRepository;
+    _productStore = productStore;
+    _userWallet = userWallet;
     _commandBus = commandBus;
   }
 
   public Task<Unit> Handle(BuyProductCommand request, CancellationToken cancellationToken)
   {
-    var product = _productRepository.GetProductWithName(request.ProductName);
+    var product = _productStore.GetProductWithName(request.ProductName);
 
     if (product == null)
     {
@@ -32,7 +32,7 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
       return Task.FromResult(Unit.Value);
     }
 
-    var depositedAmount = _userWalletRepository.TotalAmount();
+    var depositedAmount = _userWallet.TotalAmount();
 
     if (product.Price > depositedAmount)
     {
