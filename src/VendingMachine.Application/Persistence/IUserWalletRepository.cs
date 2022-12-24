@@ -7,4 +7,7 @@ public interface IUserWalletRepository
   void AddCoins(CoinType coinType, int amount);
 
   void DisplayCoins();
+  void RemoveAllCoins();
+
+  decimal TotalAmount();
 }

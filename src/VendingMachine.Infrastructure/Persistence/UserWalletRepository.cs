@@ -41,6 +41,10 @@ public class UserWalletRepository : IUserWalletRepository
     }
   }
 
+  public void RemoveAllCoins()
+  {
+    Wallet.Clear();
+  }
 
   public decimal TotalAmount()
   {

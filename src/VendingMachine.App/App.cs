@@ -62,7 +62,7 @@ public partial class App
         break;
 
       case "2":
-        Console.WriteLine($"You selected {MenuOptions.ReturnCoins}");
+        await ReturnCoins();
         break;
 
       case "3":
