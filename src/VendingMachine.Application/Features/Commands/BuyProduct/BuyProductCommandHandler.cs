@@ -1,12 +1,11 @@
 ﻿using MediatR;
-using VendingMachine.Application.Mediator;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Commands.BuyProduct;
 
 public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
 {
-  private readonly ICommandBus _commandBus;
+  private readonly IMachineWallet _machineWallet;
   private readonly IProductStore _productStore;
   private readonly IUserWallet _userWallet;
 
@@ -14,11 +13,11 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
   public BuyProductCommandHandler(
     IProductStore productStore,
     IUserWallet userWallet,
-    ICommandBus commandBus)
+    IMachineWallet machineWallet)
   {
     _productStore = productStore;
     _userWallet = userWallet;
-    _commandBus = commandBus;
+    _machineWallet = machineWallet;
   }
 
   public Task<Unit> Handle(BuyProductCommand request, CancellationToken cancellationToken)
@@ -41,6 +40,15 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
     }
 
     Console.WriteLine("Thank you.");
+
+    // add all the user wallet coins to the machine wallet and clear the user wallet
+
+
+    // calculate the change which should be returned
+
+    // remove those coins from the machine wallet
+
+    // output the amount and type of coins to the console.
 
 
     return Task.FromResult(Unit.Value);

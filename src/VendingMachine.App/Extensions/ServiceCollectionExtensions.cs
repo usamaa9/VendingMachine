@@ -23,6 +23,7 @@ public static class ServiceCollectionExtensions
   {
     services.AddSingleton<IProductStore, ProductStore>();
     services.AddSingleton<IUserWallet, UserWallet>();
+    services.AddSingleton<IMachineWallet, MachineWallet>();
 
     return services;
   }
