@@ -1,4 +1,5 @@
-﻿using VendingMachine.Application.Enumerations;
+﻿using System.Text;
+using VendingMachine.Application.Enumerations;
 using VendingMachine.Application.Mediator;
 
 namespace VendingMachine.App;
@@ -15,6 +16,8 @@ public partial class App
   public async Task Run()
   {
     Console.WriteLine("Hello World");
+
+    Console.OutputEncoding = Encoding.UTF8;
 
     var isExitChoice = false;
 
@@ -55,7 +58,6 @@ public partial class App
     switch (choice)
     {
       case "1":
-        Console.WriteLine($"You selected {MenuOptions.InsertCoins}");
         await AcceptCoins();
         break;
 
@@ -68,12 +70,10 @@ public partial class App
         break;
 
       case "4":
-        Console.WriteLine($"You selected {MenuOptions.ShowAvailableProducts}");
         await ShowAvailableProducts();
         break;
 
       case "5":
-        Console.WriteLine($"You selected {MenuOptions.ShowDepositedAmount}");
         await ShowDepositedAmount();
         break;
 

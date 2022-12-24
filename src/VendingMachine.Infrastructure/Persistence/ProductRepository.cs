@@ -24,7 +24,7 @@ public class ProductRepository : IProductRepository
     Console.WriteLine("----------------------|-------------|-------------------");
 
     foreach (var product in Products.Where(product => product.Portions > 0))
-      Console.WriteLine($"{product.Name,-21} | {product.Price,-11:C} | {product.Portions,8}");
+      Console.WriteLine($"{product.Name,-21} | \u20AC{product.Price,-10} | {product.Portions,8}");
 
     Console.WriteLine("----------------------|-------------|-------------------");
     Console.WriteLine("End of list.");

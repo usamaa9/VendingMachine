@@ -1,4 +1,5 @@
 ﻿using VendingMachine.Application.Enumerations;
+using VendingMachine.Application.Extensions;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Infrastructure.Persistence;
@@ -22,16 +23,24 @@ public class UserWalletRepository : IUserWalletRepository
 
   public void DisplayCoins()
   {
-    Console.WriteLine("Coin Type | Quantity");
-    Console.WriteLine("-------------------");
+    var total = TotalAmount();
 
-    var amount = TotalAmount();
+    if (total == 0)
+    {
+      Console.WriteLine("The wallet is empty.");
+    }
+    else
+    {
+      Console.WriteLine("Coin Type | Quantity");
+      Console.WriteLine("-------------------");
 
-    foreach (var entry in Wallet) Console.WriteLine($"{entry.Key,-10} | {entry.Value,3}");
+      foreach (var entry in Wallet) Console.WriteLine($"{entry.Key.GetDescription(),-10} | {entry.Value,3}");
 
-    Console.WriteLine("-------------------");
-    Console.WriteLine($"Total amount: {amount}e");
+      Console.WriteLine("-------------------");
+      Console.WriteLine($"Total amount: \u20AC{total}e");
+    }
   }
+
 
   public decimal TotalAmount()
   {
