@@ -2,7 +2,6 @@
 using VendingMachine.Application.Enumerations;
 using VendingMachine.Application.Extensions;
 using VendingMachine.Application.Features.AcceptCoin;
-using VendingMachine.Application.Features.Events;
 
 namespace VendingMachine.App;
 
@@ -20,13 +19,6 @@ public partial class App
       Quantity = coinQuantity
     };
     await _commandBus.SendAsync<AcceptCoinCommand, Unit>(command);
-
-    var acceptedCoinEvent = new AcceptedCoinEvent
-    {
-      CoinType = coinType,
-      Quantity = coinQuantity
-    };
-    await _commandBus.PublishAsync(acceptedCoinEvent);
   }
 
   private static int GetCoinQuantity()
