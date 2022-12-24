@@ -4,5 +4,7 @@ namespace VendingMachine.Application.Persistence;
 
 public interface IUserWalletRepository
 {
-    void AddCoins(CoinType coinType, int amount);
+  void AddCoins(CoinType coinType, int amount);
+
+  void DisplayCoins();
 }
