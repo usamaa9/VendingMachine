@@ -5,9 +5,9 @@ namespace VendingMachine.Application.Features.Commands.ReturnCoins;
 
 public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Unit>
 {
-  private readonly IUserWalletRepository _userWalletRepository;
+  private readonly IUserWallet _userWalletRepository;
 
-  public ReturnCoinsCommandHandler(IUserWalletRepository userWalletRepository)
+  public ReturnCoinsCommandHandler(IUserWallet userWalletRepository)
   {
     _userWalletRepository = userWalletRepository;
   }

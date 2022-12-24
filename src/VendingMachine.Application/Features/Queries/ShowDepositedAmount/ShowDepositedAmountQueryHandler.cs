@@ -5,9 +5,9 @@ namespace VendingMachine.Application.Features.Queries.ShowDepositedAmount;
 
 public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmountQuery, Unit>
 {
-  private readonly IUserWalletRepository _userWalletRepository;
+  private readonly IUserWallet _userWalletRepository;
 
-  public ShowDepositedAmountQueryHandler(IUserWalletRepository userWalletRepository)
+  public ShowDepositedAmountQueryHandler(IUserWallet userWalletRepository)
   {
     _userWalletRepository = userWalletRepository;
   }

@@ -3,9 +3,9 @@ using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Infrastructure.Persistence;
 
-public class ProductRepository : IProductRepository
+public class ProductStore : IProductStore
 {
-  public ProductRepository()
+  public ProductStore()
   {
     Products = new List<VendingMachineProduct>
     {

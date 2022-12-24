@@ -5,10 +5,10 @@ namespace VendingMachine.Application.Features.Commands.AcceptCoin;
 
 public class AcceptCoinCommandHandler : IRequestHandler<AcceptCoinCommand, Unit>
 {
-  private readonly IUserWalletRepository _userWalletRepository;
+  private readonly IUserWallet _userWalletRepository;
 
   public AcceptCoinCommandHandler(
-    IUserWalletRepository userWalletRepository)
+    IUserWallet userWalletRepository)
   {
     _userWalletRepository = userWalletRepository;
   }

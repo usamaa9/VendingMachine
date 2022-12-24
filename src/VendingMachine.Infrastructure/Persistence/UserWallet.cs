@@ -4,9 +4,9 @@ using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Infrastructure.Persistence;
 
-public class UserWalletRepository : IUserWalletRepository
+public class UserWallet : IUserWallet
 {
-  public UserWalletRepository()
+  public UserWallet()
   {
     Wallet = new Dictionary<CoinType, int>();
   }

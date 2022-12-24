@@ -2,7 +2,7 @@
 
 namespace VendingMachine.Application.Persistence;
 
-public interface IProductRepository
+public interface IProductStore
 {
   void DisplayAllProducts();
   Product? GetProductWithName(string? requestProductName);

@@ -21,8 +21,8 @@ public static class ServiceCollectionExtensions
   public static IServiceCollection AddRepositories(
     this IServiceCollection services)
   {
-    services.AddSingleton<IProductRepository, ProductRepository>();
-    services.AddSingleton<IUserWalletRepository, UserWalletRepository>();
+    services.AddSingleton<IProductStore, ProductStore>();
+    services.AddSingleton<IUserWallet, UserWallet>();
 
     return services;
   }

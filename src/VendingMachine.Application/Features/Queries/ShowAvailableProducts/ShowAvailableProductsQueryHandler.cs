@@ -5,9 +5,9 @@ namespace VendingMachine.Application.Features.Queries.ShowAvailableProducts;
 
 internal class ShowAvailableProductsQueryHandler : IRequestHandler<ShowAvailableProductsQuery, Unit>
 {
-  private readonly IProductRepository _productRepository;
+  private readonly IProductStore _productRepository;
 
-  public ShowAvailableProductsQueryHandler(IProductRepository productRepository)
+  public ShowAvailableProductsQueryHandler(IProductStore productRepository)
   {
     _productRepository = productRepository;
   }

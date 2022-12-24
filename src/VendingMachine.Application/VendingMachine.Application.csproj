@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Commands\AcceptCoin\" />
-    <Folder Include="Features\Events\" />
     <Folder Include="Features\Commands\BuyProduct\" />
     <Folder Include="Features\Commands\ReturnCoins\" />
     <Folder Include="Features\Queries\ShowDepositedAmount\" />
