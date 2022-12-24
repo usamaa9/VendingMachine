@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using VendingMachine.Application.Features.ReturnCoins;
+using VendingMachine.Application.Features.Commands.ReturnCoins;
 
 namespace VendingMachine.App;
 

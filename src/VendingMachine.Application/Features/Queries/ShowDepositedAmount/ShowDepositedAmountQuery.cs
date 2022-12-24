@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace VendingMachine.Application.Features.ShowDepositedAmount;
+namespace VendingMachine.Application.Features.Queries.ShowDepositedAmount;
 
 /// <summary>
 /// Query for displaying User's deposited amount

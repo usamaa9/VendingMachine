@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using VendingMachine.Application.Enumerations;
 using VendingMachine.Application.Extensions;
-using VendingMachine.Application.Features.AcceptCoin;
+using VendingMachine.Application.Features.Commands.AcceptCoin;
 
 namespace VendingMachine.App;
 

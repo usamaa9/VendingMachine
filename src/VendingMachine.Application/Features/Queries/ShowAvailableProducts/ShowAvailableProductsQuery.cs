@@ -1,7 +1,6 @@
 ﻿using MediatR;
-using VendingMachine.Application.Features.ShowAvailableProducts;
 
-namespace VendingMachine.Application.Features.GetAvailableProducts;
+namespace VendingMachine.Application.Features.Queries.ShowAvailableProducts;
 
 /// <summary>
 /// Query to get all available products.

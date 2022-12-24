@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using VendingMachine.Application.Features.GetAvailableProducts;
+using VendingMachine.Application.Features.Queries.ShowAvailableProducts;
 
 namespace VendingMachine.App;
 

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace VendingMachine.Application.Features.BuyProduct;
+namespace VendingMachine.Application.Features.Commands.BuyProduct;
 
 /// <summary>
 /// Command to buy a product.

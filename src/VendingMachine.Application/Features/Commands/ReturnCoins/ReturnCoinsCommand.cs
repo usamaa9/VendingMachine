@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace VendingMachine.Application.Features.ReturnCoins;
+namespace VendingMachine.Application.Features.Commands.ReturnCoins;
 
 /// <summary>
 /// Command to return all user coins.

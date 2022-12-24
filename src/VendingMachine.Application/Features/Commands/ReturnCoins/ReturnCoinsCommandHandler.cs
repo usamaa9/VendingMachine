@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using VendingMachine.Application.Persistence;
 
-namespace VendingMachine.Application.Features.ReturnCoins;
+namespace VendingMachine.Application.Features.Commands.ReturnCoins;
 
 public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Unit>
 {

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using VendingMachine.Application.Persistence;
 
-namespace VendingMachine.Application.Features.BuyProduct;
+namespace VendingMachine.Application.Features.Commands.BuyProduct;
 
 public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, BuyProductResponse?>
 {

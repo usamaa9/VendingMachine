@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using VendingMachine.Application.Persistence;
 
-namespace VendingMachine.Application.Features.ShowDepositedAmount;
+namespace VendingMachine.Application.Features.Queries.ShowDepositedAmount;
 
 public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmountQuery, Unit>
 {

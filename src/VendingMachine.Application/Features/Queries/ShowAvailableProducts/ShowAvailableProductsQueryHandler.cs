@@ -1,8 +1,7 @@
 ﻿using MediatR;
-using VendingMachine.Application.Features.GetAvailableProducts;
 using VendingMachine.Application.Persistence;
 
-namespace VendingMachine.Application.Features.ShowAvailableProducts;
+namespace VendingMachine.Application.Features.Queries.ShowAvailableProducts;
 
 internal class ShowAvailableProductsQueryHandler : IRequestHandler<ShowAvailableProductsQuery, Unit>
 {

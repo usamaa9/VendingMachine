@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\AcceptCoin\" />
+    <Folder Include="Features\Commands\AcceptCoin\" />
     <Folder Include="Features\Events\" />
-    <Folder Include="Features\BuyProduct\" />
-    <Folder Include="Features\ReturnCoins\" />
-    <Folder Include="Features\ShowDepositedAmount\" />
+    <Folder Include="Features\Commands\BuyProduct\" />
+    <Folder Include="Features\Commands\ReturnCoins\" />
+    <Folder Include="Features\Queries\ShowDepositedAmount\" />
   </ItemGroup>
 
 </Project>

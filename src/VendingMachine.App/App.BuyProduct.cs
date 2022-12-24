@@ -1,4 +1,4 @@
-﻿using VendingMachine.Application.Features.BuyProduct;
+﻿using VendingMachine.Application.Features.Commands.BuyProduct;
 using VendingMachine.Application.Features.Events;
 
 namespace VendingMachine.App;

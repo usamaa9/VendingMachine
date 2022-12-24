@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using VendingMachine.Application.Persistence;
 
-namespace VendingMachine.Application.Features.AcceptCoin;
+namespace VendingMachine.Application.Features.Commands.AcceptCoin;
 
 public class AcceptCoinCommandHandler : IRequestHandler<AcceptCoinCommand, Unit>
 {
