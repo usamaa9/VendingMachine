@@ -65,4 +65,9 @@ public class UserWallet : IUserWallet
 
     return total;
   }
+
+  public Dictionary<CoinType, int> GetCoins()
+  {
+    return Wallet;
+  }
 }

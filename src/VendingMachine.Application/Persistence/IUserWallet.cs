@@ -10,4 +10,5 @@ public interface IUserWallet
   void RemoveAllCoins();
 
   decimal TotalAmount();
+  Dictionary<CoinType, int> GetCoins();
 }
