@@ -22,4 +22,20 @@ public class MachineWallet : IMachineWallet
   {
     Wallet.RemoveCoins(coinType, quantity);
   }
+
+
+  public bool CanGiveChange(decimal change, out Dictionary<CoinType, int>? coinsDictionary)
+  {
+    try
+    {
+      coinsDictionary = Wallet.GetAmountInCoins(change);
+    }
+    catch (Exception)
+    {
+      coinsDictionary = null;
+      return false;
+    }
+
+    return true;
+  }
 }
