@@ -1,4 +1,5 @@
 ﻿using VendingMachine.Application.Enumerations;
+using VendingMachine.Application.Extensions;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Infrastructure.Persistence;
@@ -7,28 +8,18 @@ public class MachineWallet : IMachineWallet
 {
   public MachineWallet()
   {
-    Wallet = new Dictionary<CoinType, int>
-    {
-      { CoinType.TenCent, 100 },
-      { CoinType.TwentyCent, 100 },
-      { CoinType.FiftyCent, 100 },
-      { CoinType.OneEuro, 100 }
-    };
+    Wallet = new Dictionary<CoinType, int>();
   }
 
   private Dictionary<CoinType, int> Wallet { get; }
 
-  public void AddCoins(CoinType coinType, int amount)
+  public void AddCoins(CoinType coinType, int quantity)
   {
-    if (Wallet.TryGetValue(coinType, out var currentAmount))
-      Wallet[coinType] = currentAmount + amount;
-    else
-      Wallet.Add(coinType, amount);
+    Wallet.AddCoins(coinType, quantity);
   }
 
-  public void RemoveCoins(CoinType coinType, int amount)
+  public void RemoveCoins(CoinType coinType, int quantity)
   {
-    Wallet.TryGetValue(coinType, out var currentAmount);
-    Wallet[coinType] = currentAmount - amount;
+    Wallet.RemoveCoins(coinType, quantity);
   }
 }

@@ -5,5 +5,7 @@ namespace VendingMachine.Application.Persistence;
 public interface IProductStore
 {
   void DisplayAllProducts();
-  Product? GetProductWithName(string? requestProductName);
+  VendingMachineProduct? GetProductWithName(string? requestProductName);
+  void RemoveProductWithName(string? productName);
+  void AddProduct(VendingMachineProduct product);
 }

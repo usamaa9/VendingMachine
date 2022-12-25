@@ -24,6 +24,7 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
 
   public Task<Unit> Handle(BuyProductCommand request, CancellationToken cancellationToken)
   {
+    // Check if the product name is valid
     var product = _productStore.GetProductWithName(request.ProductName);
 
     if (product == null)
@@ -33,6 +34,15 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
       return Task.FromResult(Unit.Value);
     }
 
+    // Check if there are any portions of this product left
+    if (product.Portions == 0)
+    {
+      Console.WriteLine("Sorry this product is no longer in stock :(");
+      Console.WriteLine();
+      return Task.FromResult(Unit.Value);
+    }
+
+    // Check if the deposited amount is sufficient
     var depositedAmount = _userWallet.TotalAmount();
 
     if (product.Price > depositedAmount)
@@ -41,7 +51,12 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
       return Task.FromResult(Unit.Value);
     }
 
+    // TODO: Check if we have coins for the change required
+
     Console.WriteLine("Thank you.");
+
+    // Remove one portion from the productStore
+    _productStore.RemoveProductWithName(product.Name);
 
     // add all the user wallet coins to the machine wallet and clear the user wallet
 
@@ -64,13 +79,7 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
     // output the amount and type of coins to the console.
     Console.WriteLine("Your Change");
 
-    Console.WriteLine("Coin Type | Quantity");
-    Console.WriteLine("-------------------");
-
-    foreach (var entry in changeCoins) Console.WriteLine($"{entry.Key.GetDescription(),-10} | {entry.Value,3}");
-
-    Console.WriteLine("-------------------");
-    Console.WriteLine($"Total amount: \u20AC{change}e");
+    changeCoins.DisplayCoins();
 
 
     return Task.FromResult(Unit.Value);
