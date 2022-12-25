@@ -78,4 +78,11 @@ public class UserInput : IUserInput
       _consolePrinter.InvalidMenuChoiceMessage();
     }
   }
+
+  public string? GetProductName()
+  {
+    _consolePrinter.AskForProductName();
+    var productName = Console.ReadLine();
+    return productName;
+  }
 }

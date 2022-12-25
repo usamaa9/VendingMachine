@@ -10,11 +10,4 @@
     <PackageReference Include="MediatR" Version="11.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Commands\AcceptCoin\" />
-    <Folder Include="Features\Commands\BuyProduct\" />
-    <Folder Include="Features\Commands\ReturnCoins\" />
-    <Folder Include="Features\Queries\ShowDepositedAmount\" />
-  </ItemGroup>
-
 </Project>

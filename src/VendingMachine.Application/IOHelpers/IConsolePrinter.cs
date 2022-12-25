@@ -10,4 +10,5 @@ public interface IConsolePrinter
   void AskUserForCoinQuantity();
   void InvalidCoinTypeMessage();
   void InvalidCoinQuantityMessage();
+  void AskForProductName();
 }

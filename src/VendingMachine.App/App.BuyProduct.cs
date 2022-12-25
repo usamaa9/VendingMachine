@@ -7,8 +7,7 @@ public partial class App
 {
   public async Task BuyProduct()
   {
-    Console.Write("Enter product name: ");
-    var productName = Console.ReadLine();
+    var productName = _userInput.GetProductName();
 
     var command = new BuyProductCommand
     {

@@ -13,6 +13,7 @@ public class ConsolePrinter : IConsolePrinter
 
   public void DisplayMenu()
   {
+    Console.WriteLine();
     Console.WriteLine("--- Vending Machine ---");
     Console.WriteLine($"1. {MenuOptions.InsertCoins.GetDescription()}");
     Console.WriteLine($"2. {MenuOptions.ReturnCoins.GetDescription()}");
@@ -30,31 +31,43 @@ public class ConsolePrinter : IConsolePrinter
 
   public void InvalidMenuChoiceMessage()
   {
+    Console.WriteLine();
     Console.WriteLine("Invalid Choice...");
   }
 
   public void ExitMessage()
   {
+    Console.WriteLine();
     Console.WriteLine("Exiting...");
   }
 
   public void AskUserForCoinType()
   {
+    Console.WriteLine();
     Console.Write("Enter coin type (10c, 20c, 50c, 1e): ");
   }
 
   public void InvalidCoinTypeMessage()
   {
+    Console.WriteLine();
     Console.WriteLine("Invalid coin type.");
   }
 
   public void AskUserForCoinQuantity()
   {
+    Console.WriteLine();
     Console.Write("Enter coin quantity: ");
   }
 
   public void InvalidCoinQuantityMessage()
   {
+    Console.WriteLine();
     Console.WriteLine("Please enter a positive integer for the coin quantity.");
+  }
+
+  public void AskForProductName()
+  {
+    Console.WriteLine();
+    Console.Write("Enter product name: ");
   }
 }
