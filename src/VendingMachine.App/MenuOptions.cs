@@ -11,6 +11,5 @@ public enum MenuOptions
   [Description("Show available products")]
   ShowAvailableProducts,
   [Description("Show deposited amount")] ShowDepositedAmount,
-  [Description("Exit")] Exit,
-  [Description("Invalid Choice")] Invalid
+  [Description("Exit")] Exit
 }

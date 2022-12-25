@@ -25,7 +25,39 @@ public partial class App
 
       var choice = GetUserMenuChoice();
 
-      isExitChoice = await HandleChoiceAsync(choice);
+      Console.WriteLine();
+
+      switch (choice)
+      {
+        case MenuOptions.InsertCoins:
+          await AcceptCoins();
+          break;
+
+        case MenuOptions.ReturnCoins:
+          await ReturnCoins();
+          break;
+
+        case MenuOptions.BuyProduct:
+          await BuyProduct();
+          break;
+
+        case MenuOptions.ShowAvailableProducts:
+          await ShowAvailableProducts();
+          break;
+
+        case MenuOptions.ShowDepositedAmount:
+          await ShowDepositedAmount();
+          break;
+
+        case MenuOptions.Exit:
+          Console.WriteLine("Exiting...");
+          isExitChoice = true;
+          break;
+
+        default:
+          Console.WriteLine("Invalid Choice...");
+          break;
+      }
     }
   }
 
@@ -42,55 +74,16 @@ public partial class App
 
   private static MenuOptions GetUserMenuChoice()
   {
-    Console.WriteLine();
-    Console.Write("Enter your choice: ");
-
-    var input = Console.ReadLine();
-    if (int.TryParse(input, out var choice) && choice > 0 && choice <= Enum.GetValues(typeof(MenuOptions)).Length)
-      return (MenuOptions)(choice - 1);
-
-    return MenuOptions.Invalid;
-  }
-
-  private async Task<bool> HandleChoiceAsync(MenuOptions choice)
-  {
-    Console.WriteLine();
-
-    switch (choice)
+    while (true)
     {
-      case MenuOptions.InsertCoins:
-        await AcceptCoins();
-        break;
+      Console.WriteLine();
+      Console.Write("Enter your choice: ");
 
-      case MenuOptions.ReturnCoins:
-        await ReturnCoins();
-        break;
+      var input = Console.ReadLine();
+      if (int.TryParse(input, out var choice) && choice > 0 && choice <= Enum.GetValues(typeof(MenuOptions)).Length)
+        return (MenuOptions)(choice - 1);
 
-      case MenuOptions.BuyProduct:
-        await BuyProduct();
-        break;
-
-      case MenuOptions.ShowAvailableProducts:
-        await ShowAvailableProducts();
-        break;
-
-      case MenuOptions.ShowDepositedAmount:
-        await ShowDepositedAmount();
-        break;
-
-      case MenuOptions.Exit:
-        Console.WriteLine("Exiting...");
-        break;
-
-      case MenuOptions.Invalid:
-        Console.WriteLine("Invalid Choice...");
-        break;
-
-      default:
-        Console.WriteLine("Invalid Choice...");
-        break;
+      Console.WriteLine("Invalid Choice...");
     }
-
-    return choice == MenuOptions.Exit;
   }
 }
