@@ -7,8 +7,9 @@ public partial class App
 {
   private async Task ShowAvailableProducts()
   {
-    var query = new ShowAvailableProductsQuery();
-    var result = await _commandBus.SendAsync<ShowAvailableProductsQuery, List<VendingMachineProduct>>(query);
+    var result =
+      await _commandBus.SendAsync<ShowAvailableProductsQuery, List<VendingMachineProduct>>(
+        new ShowAvailableProductsQuery());
     _consolePrinter.DisplayProducts(result.Value!);
   }
 }

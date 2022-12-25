@@ -83,4 +83,17 @@ public class ConsolePrinter : IConsolePrinter
     Console.WriteLine("----------------------|-------------|-------------------");
     Console.WriteLine("End of list.");
   }
+
+  public void PrintCoinsInWallet(Dictionary<CoinType, int> wallet)
+  {
+    var total = wallet.TotalAmount();
+
+    Console.WriteLine("Coin Type | Quantity");
+    Console.WriteLine("-------------------");
+
+    foreach (var entry in wallet) Console.WriteLine($"{entry.Key.GetDescription(),-10} | {entry.Value,3}");
+
+    Console.WriteLine("-------------------");
+    Console.WriteLine($"Total amount: \u20AC{total}e");
+  }
 }

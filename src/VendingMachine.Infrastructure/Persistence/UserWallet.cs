@@ -18,10 +18,6 @@ public class UserWallet : IUserWallet
     Wallet.AddCoins(coinType, quantity);
   }
 
-  public void DisplayCoins()
-  {
-    Wallet.DisplayCoins();
-  }
 
   public void RemoveAllCoins()
   {
@@ -33,7 +29,7 @@ public class UserWallet : IUserWallet
     return Wallet.TotalAmount();
   }
 
-  public Dictionary<CoinType, int> GetCoins()
+  public Dictionary<CoinType, int> GetAllCoins()
   {
     return Wallet;
   }

@@ -1,4 +1,5 @@
 ﻿using VendingMachine.Application.Entities;
+using VendingMachine.Application.Enumerations;
 
 namespace VendingMachine.Application.IOHelpers;
 
@@ -14,4 +15,5 @@ public interface IConsolePrinter
   void InvalidCoinQuantityMessage();
   void AskForProductName();
   void DisplayProducts(List<VendingMachineProduct> products);
+  void PrintCoinsInWallet(Dictionary<CoinType, int> wallet);
 }
