@@ -1,9 +1,10 @@
 ﻿using MediatR;
+using VendingMachine.Application.Models;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Queries.ShowDepositedAmount;
 
-public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmountQuery, Unit>
+public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmountQuery, Result<Unit>>
 {
   private readonly IUserWallet _userWallet;
 
@@ -12,10 +13,10 @@ public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmou
     _userWallet = userWallet;
   }
 
-  public Task<Unit> Handle(ShowDepositedAmountQuery request, CancellationToken cancellationToken)
+  public Task<Result<Unit>> Handle(ShowDepositedAmountQuery request, CancellationToken cancellationToken)
   {
     _userWallet.DisplayCoins();
 
-    return Task.FromResult(Unit.Value);
+    return Task.FromResult(Result.From(Unit.Value));
   }
 }

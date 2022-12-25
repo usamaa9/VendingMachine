@@ -7,18 +7,6 @@ public class ProductStore : IProductStore
 {
   private List<VendingMachineProduct> Products { get; } = new();
 
-  public void DisplayAllProducts()
-  {
-    Console.WriteLine("Product Name          | Price       | Available Portions");
-    Console.WriteLine("----------------------|-------------|-------------------");
-
-    foreach (var product in Products.Where(product => product.Portions > 0))
-      Console.WriteLine($"{product.Name,-21} | \u20AC{product.Price,-10} | {product.Portions,8}");
-
-    Console.WriteLine("----------------------|-------------|-------------------");
-    Console.WriteLine("End of list.");
-  }
-
   public VendingMachineProduct? GetProductWithName(string? name)
   {
     return string.IsNullOrEmpty(name)
@@ -36,5 +24,10 @@ public class ProductStore : IProductStore
   public void AddProduct(VendingMachineProduct product)
   {
     Products.Add(product);
+  }
+
+  public List<VendingMachineProduct> GetInStockProducts()
+  {
+    return Products.Where(product => product.Portions > 0).ToList();
   }
 }

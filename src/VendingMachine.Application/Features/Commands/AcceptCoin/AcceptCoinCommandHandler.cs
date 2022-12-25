@@ -1,9 +1,10 @@
 ﻿using MediatR;
+using VendingMachine.Application.Models;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Commands.AcceptCoin;
 
-public class AcceptCoinCommandHandler : IRequestHandler<AcceptCoinCommand, Unit>
+public class AcceptCoinCommandHandler : IRequestHandler<AcceptCoinCommand, Result<Unit>>
 {
   private readonly IUserWallet _userWallet;
 
@@ -13,10 +14,10 @@ public class AcceptCoinCommandHandler : IRequestHandler<AcceptCoinCommand, Unit>
     _userWallet = userWallet;
   }
 
-  public Task<Unit> Handle(AcceptCoinCommand request, CancellationToken cancellationToken)
+  public Task<Result<Unit>> Handle(AcceptCoinCommand request, CancellationToken cancellationToken)
   {
     _userWallet.AddCoins(request.CoinType, request.Quantity);
 
-    return Task.FromResult(Unit.Value);
+    return Task.FromResult(Result.From(Unit.Value));
   }
 }

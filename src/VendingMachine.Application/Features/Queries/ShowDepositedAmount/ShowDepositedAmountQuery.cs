@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using VendingMachine.Application.Models;
 
 namespace VendingMachine.Application.Features.Queries.ShowDepositedAmount;
 
@@ -6,6 +7,6 @@ namespace VendingMachine.Application.Features.Queries.ShowDepositedAmount;
 /// Query for displaying User's deposited amount
 /// <seealso cref="ShowDepositedAmountQueryHandler"/>
 /// </summary>
-public class ShowDepositedAmountQuery : IRequest<Unit>
+public class ShowDepositedAmountQuery : IRequest<Result<Unit>>
 {
 }

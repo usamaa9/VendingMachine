@@ -1,17 +1,17 @@
 ﻿using MediatR;
 using VendingMachine.Application.Features.Events;
 using VendingMachine.Application.Mediator;
+using VendingMachine.Application.Models;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Commands.BuyProduct;
 
-public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
+public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Result<Unit>>
 {
   private readonly ICommandBus _commandBus;
   private readonly IMachineWallet _machineWallet;
   private readonly IProductStore _productStore;
   private readonly IUserWallet _userWallet;
-
 
   public BuyProductCommandHandler(
     IProductStore productStore,
@@ -25,7 +25,7 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
     _commandBus = commandBus;
   }
 
-  public async Task<Unit> Handle(BuyProductCommand request, CancellationToken cancellationToken)
+  public async Task<Result<Unit>> Handle(BuyProductCommand request, CancellationToken cancellationToken)
   {
     // Check if the product name is valid
     var product = _productStore.GetProductWithName(request.ProductName);
@@ -34,15 +34,14 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
     {
       Console.WriteLine($"Product with name {request.ProductName} does not exist.");
 
-      return Unit.Value;
+      return Result.From(Unit.Value);
     }
 
     // Check if there are any portions of this product left
     if (product.Portions == 0)
     {
       Console.WriteLine("Sorry this product is no longer in stock :(");
-      Console.WriteLine();
-      return Unit.Value;
+      return Result.From(Unit.Value);
     }
 
     // Check if the deposited amount is sufficient
@@ -53,7 +52,7 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
     if (change < 0)
     {
       Console.WriteLine("Insufficient amount to buy the product.");
-      return Unit.Value;
+      return Result.From(Unit.Value);
     }
 
 
@@ -61,7 +60,7 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
     if (!_machineWallet.CanGiveChange(change, out var changeCoins))
     {
       Console.WriteLine("Sorry, I don't have change for the deposited amount. Please use exact coins for purchase.");
-      return Unit.Value;
+      return Result.From(Unit.Value);
     }
 
     Console.WriteLine("Thank you.");
@@ -75,6 +74,6 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
     });
 
 
-    return Unit.Value;
+    return Result.From(Unit.Value);
   }
 }

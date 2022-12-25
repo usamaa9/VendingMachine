@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using VendingMachine.Application.Enumerations;
+using VendingMachine.Application.Models;
 
 namespace VendingMachine.Application.Features.Commands.AcceptCoin;
 
@@ -7,7 +8,7 @@ namespace VendingMachine.Application.Features.Commands.AcceptCoin;
 /// Command for accepting coins.
 /// <seealso cref="AcceptCoinCommandHandler"/>
 /// </summary>
-public class AcceptCoinCommand : IRequest<Unit>
+public class AcceptCoinCommand : IRequest<Result<Unit>>
 {
   public CoinType CoinType { get; set; }
 

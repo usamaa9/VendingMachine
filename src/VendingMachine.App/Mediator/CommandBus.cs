@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using VendingMachine.Application.Mediator;
+using VendingMachine.Application.Models;
 
 namespace VendingMachine.App.Mediator;
 
@@ -17,13 +18,14 @@ public class CommandBus : ICommandBus
   }
 
   /// <inheritdoc/>
-  public async Task<dynamic> SendAsync<TCommand, TResponse>(
-    TCommand command) where TCommand : IRequest<TResponse>
+  public async Task<Result<TResponse>> SendAsync<TCommand, TResponse>(
+    TCommand command) where TCommand : IRequest<Result<TResponse>>
   {
     var mediatorResponse = await _mediator.Send(command);
 
-    return mediatorResponse!;
+    return mediatorResponse;
   }
+
 
   public async Task PublishAsync<TNotification>(TNotification notification) where TNotification : INotification
   {

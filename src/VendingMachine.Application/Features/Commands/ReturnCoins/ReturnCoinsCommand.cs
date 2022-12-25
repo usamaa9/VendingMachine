@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using VendingMachine.Application.Models;
 
 namespace VendingMachine.Application.Features.Commands.ReturnCoins;
 
@@ -6,6 +7,6 @@ namespace VendingMachine.Application.Features.Commands.ReturnCoins;
 /// Command to return all user coins.
 /// <seealso cref="ReturnCoinsCommandHandler"/>
 /// </summary>
-public class ReturnCoinsCommand : IRequest<Unit>
+public class ReturnCoinsCommand : IRequest<Result<Unit>>
 {
 }

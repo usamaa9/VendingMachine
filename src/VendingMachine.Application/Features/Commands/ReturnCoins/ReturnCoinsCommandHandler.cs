@@ -1,9 +1,10 @@
 ﻿using MediatR;
+using VendingMachine.Application.Models;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Commands.ReturnCoins;
 
-public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Unit>
+public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Result<Unit>>
 {
   private readonly IUserWallet _userWallet;
 
@@ -12,11 +13,11 @@ public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Uni
     _userWallet = userWallet;
   }
 
-  public Task<Unit> Handle(ReturnCoinsCommand request, CancellationToken cancellationToken)
+  public Task<Result<Unit>> Handle(ReturnCoinsCommand request, CancellationToken cancellationToken)
   {
     _userWallet.RemoveAllCoins();
     Console.WriteLine("Returning all coins to user.");
     Console.WriteLine();
-    return Task.FromResult(Unit.Value);
+    return Task.FromResult(Result.From(Unit.Value));
   }
 }

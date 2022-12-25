@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using VendingMachine.Application.Entities;
 using VendingMachine.Application.Enumerations;
 using VendingMachine.Application.Extensions;
 
@@ -69,5 +70,17 @@ public class ConsolePrinter : IConsolePrinter
   {
     Console.WriteLine();
     Console.Write("Enter product name: ");
+  }
+
+  public void DisplayProducts(List<VendingMachineProduct> products)
+  {
+    Console.WriteLine("Product Name          | Price       | Available Portions");
+    Console.WriteLine("----------------------|-------------|-------------------");
+
+    foreach (var product in products)
+      Console.WriteLine($"{product.Name,-21} | \u20AC{product.Price,-10} | {product.Portions,8}");
+
+    Console.WriteLine("----------------------|-------------|-------------------");
+    Console.WriteLine("End of list.");
   }
 }
