@@ -34,6 +34,10 @@ internal class Program
     // Add the Console printer
     services.AddSingleton<IConsolePrinter, ConsolePrinter>();
 
+    // Add the user input helper
+    services.AddSingleton<IUserInput, UserInput>();
+
+
     // Add the App to run.
     services.AddTransient<App>();
     return services;

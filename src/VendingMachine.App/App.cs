@@ -1,5 +1,4 @@
-﻿using System.Text;
-using VendingMachine.App.IOHelpers;
+﻿using VendingMachine.App.IOHelpers;
 using VendingMachine.Application.IOHelpers;
 using VendingMachine.Application.Mediator;
 
@@ -11,23 +10,24 @@ public partial class App
 
   private readonly IConsolePrinter _consolePrinter;
 
-  public App(ICommandBus commandBus, IConsolePrinter consolePrinter)
+  private readonly IUserInput _userInput;
+
+  public App(ICommandBus commandBus, IConsolePrinter consolePrinter, IUserInput userInput)
   {
     _commandBus = commandBus;
     _consolePrinter = consolePrinter;
+    _userInput = userInput;
   }
 
   public async Task Run()
   {
-    Console.OutputEncoding = Encoding.UTF8;
-
     var isExitChoice = false;
 
     while (!isExitChoice)
     {
       _consolePrinter.DisplayMenu();
 
-      var choice = GetUserMenuChoice();
+      var choice = _userInput.GetUserMenuChoice();
 
       switch (choice)
       {

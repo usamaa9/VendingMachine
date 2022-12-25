@@ -1,10 +1,16 @@
-﻿using VendingMachine.Application.Extensions;
+﻿using System.Text;
+using VendingMachine.Application.Extensions;
 using VendingMachine.Application.IOHelpers;
 
 namespace VendingMachine.App.IOHelpers;
 
 public class ConsolePrinter : IConsolePrinter
 {
+  public ConsolePrinter()
+  {
+    Console.OutputEncoding = Encoding.UTF8;
+  }
+
   public void DisplayMenu()
   {
     Console.WriteLine("--- Vending Machine ---");

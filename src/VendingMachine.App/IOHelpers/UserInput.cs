@@ -39,6 +39,43 @@ public class UserInput : IUserInput
 
   public int GetCoinQuantity()
   {
-    throw new NotImplementedException();
+    int coinQuantity;
+
+    while (true)
+    {
+      _consolePrinter.AskUserForCoinQuantity();
+      var coinQuantityString = Console.ReadLine();
+
+      if (!int.TryParse(coinQuantityString, out var quantity))
+      {
+        _consolePrinter.InvalidCoinQuantityMessage();
+        continue;
+      }
+
+      if (quantity <= 0)
+      {
+        _consolePrinter.InvalidCoinQuantityMessage();
+        continue;
+      }
+
+      coinQuantity = quantity;
+      break;
+    }
+
+    return coinQuantity;
+  }
+
+  public MenuOptions GetUserMenuChoice()
+  {
+    while (true)
+    {
+      _consolePrinter.AskUserForMenuChoice();
+
+      var input = Console.ReadLine();
+      if (int.TryParse(input, out var choice) && choice > 0 && choice <= Enum.GetValues(typeof(MenuOptions)).Length)
+        return (MenuOptions)(choice - 1);
+
+      _consolePrinter.InvalidMenuChoiceMessage();
+    }
   }
 }
