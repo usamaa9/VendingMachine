@@ -4,8 +4,6 @@ namespace VendingMachine.Application.Enumerations;
 
 public enum CoinType
 {
-  None,
-
   [Description("10c")] TenCent = 10,
 
   [Description("20c")] TwentyCent = 20,

@@ -75,12 +75,12 @@ public static class WalletExtensions
   /// <summary>
   /// Returns the change in least amount of coins.
   /// </summary>
-  /// <param name="_wallet"></param>
+  /// <param name="wallet"></param>
   /// <param name="change"></param>
   /// <returns></returns>
-  public static Dictionary<CoinType, int> GetAmountInCoins(this Dictionary<CoinType, int> _wallet, decimal change)
+  public static Dictionary<CoinType, int> GetAmountInCoins(this Dictionary<CoinType, int> wallet, decimal change)
   {
-    var wallet = _wallet.ToDictionary(x => x.Key, x => x.Value);
+    var testWallet = wallet.ToDictionary(x => x.Key, x => x.Value);
 
     // Create a dictionary to store the result
     var result = new Dictionary<CoinType, int>();
@@ -94,34 +94,35 @@ public static class WalletExtensions
     // While there is still change to be given
     while (changeInCents > 0)
       // Check if we have any OneEuro coins in the wallet and if the change is greater than or equal to 100 cents
-      if (wallet.ContainsKey(CoinType.OneEuro) && wallet[CoinType.OneEuro] > 0 && changeInCents >= 100)
+      if (testWallet.ContainsKey(CoinType.OneEuro) && testWallet[CoinType.OneEuro] > 0 && changeInCents >= 100)
       {
         // Subtract a OneEuro coin from the wallet and add it to the result
-        wallet[CoinType.OneEuro]--;
+        testWallet[CoinType.OneEuro]--;
         result[CoinType.OneEuro]++;
         changeInCents -= 100;
       }
       // Check if we have any FiftyCent coins in the wallet and if the change is greater than or equal to 50 cents
-      else if (wallet.ContainsKey(CoinType.FiftyCent) && wallet[CoinType.FiftyCent] > 0 && changeInCents >= 50)
+      else if (testWallet.ContainsKey(CoinType.FiftyCent) && testWallet[CoinType.FiftyCent] > 0 && changeInCents >= 50)
       {
         // Subtract a FiftyCent coin from the wallet and add it to the result
-        wallet[CoinType.FiftyCent]--;
+        testWallet[CoinType.FiftyCent]--;
         result[CoinType.FiftyCent]++;
         changeInCents -= 50;
       }
       // Check if we have any TwentyCent coins in the wallet and if the change is greater than or equal to 20 cents
-      else if (wallet.ContainsKey(CoinType.TwentyCent) && wallet[CoinType.TwentyCent] > 0 && changeInCents >= 20)
+      else if (testWallet.ContainsKey(CoinType.TwentyCent) && testWallet[CoinType.TwentyCent] > 0 &&
+               changeInCents >= 20)
       {
         // Subtract a TwentyCent coin from the wallet and add it to the result
-        wallet[CoinType.TwentyCent]--;
+        testWallet[CoinType.TwentyCent]--;
         result[CoinType.TwentyCent]++;
         changeInCents -= 20;
       }
       // Check if we have any TenCent coins in the wallet and if the change is greater than or equal to 10 cents
-      else if (wallet.ContainsKey(CoinType.TenCent) && wallet[CoinType.TenCent] > 0 && changeInCents >= 10)
+      else if (testWallet.ContainsKey(CoinType.TenCent) && testWallet[CoinType.TenCent] > 0 && changeInCents >= 10)
       {
         // Subtract a TenCent coin from the wallet and add it to the result
-        wallet[CoinType.TenCent]--;
+        testWallet[CoinType.TenCent]--;
         result[CoinType.TenCent]++;
         changeInCents -= 10;
       }

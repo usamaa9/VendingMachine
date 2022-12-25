@@ -17,7 +17,7 @@ public class CoinCollectorEventHandler : INotificationHandler<ProductBoughtEvent
   public Task Handle(ProductBoughtEvent notification, CancellationToken cancellationToken)
   {
     // add all the user wallet coins to the machine wallet and clear the user wallet
-    foreach (var coin in notification.UserCoins) _machineWallet.AddCoins(coin.Key, coin.Value);
+    foreach (var coin in notification.UserCoins!) _machineWallet.AddCoins(coin.Key, coin.Value);
 
     _userWallet.RemoveAllCoins();
 

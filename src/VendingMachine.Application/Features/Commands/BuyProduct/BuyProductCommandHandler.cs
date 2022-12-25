@@ -64,7 +64,6 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Unit>
       return Unit.Value;
     }
 
-    ;
     Console.WriteLine("Thank you.");
 
     // Publish the ProductBoughtEvent

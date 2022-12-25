@@ -22,7 +22,7 @@ public class CommandBus : ICommandBus
   {
     var mediatorResponse = await _mediator.Send(command);
 
-    return mediatorResponse;
+    return mediatorResponse!;
   }
 
   public async Task PublishAsync<TNotification>(TNotification notification) where TNotification : INotification
