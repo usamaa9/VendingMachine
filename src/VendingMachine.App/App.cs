@@ -1,8 +1,22 @@
-﻿using System.Text;
-using VendingMachine.Application.Enumerations;
+﻿using System.ComponentModel;
+using System.Text;
+using VendingMachine.Application.Extensions;
 using VendingMachine.Application.Mediator;
 
 namespace VendingMachine.App;
+
+public enum MenuOptions
+{
+  [Description("Insert coins")] InsertCoins,
+  [Description("Return coins")] ReturnCoins,
+  [Description("Buy a product")] BuyProduct,
+
+  [Description("Show available products")]
+  ShowAvailableProducts,
+  [Description("Show deposited amount")] ShowDepositedAmount,
+  [Description("Exit")] Exit,
+  [Description("Invalid Choice")] Invalid
+}
 
 public partial class App
 {
@@ -15,8 +29,6 @@ public partial class App
 
   public async Task Run()
   {
-    Console.WriteLine("Hello World");
-
     Console.OutputEncoding = Encoding.UTF8;
 
     var isExitChoice = false;
@@ -25,7 +37,7 @@ public partial class App
     {
       DisplayMenu();
 
-      var choice = GetUserInput();
+      var choice = GetUserMenuChoice();
 
       isExitChoice = await HandleChoiceAsync(choice);
     }
@@ -34,60 +46,65 @@ public partial class App
   private static void DisplayMenu()
   {
     Console.WriteLine("--- Vending Machine ---");
-    Console.WriteLine($"1. {MenuOptions.InsertCoins}");
-    Console.WriteLine($"2. {MenuOptions.ReturnCoins}");
-    Console.WriteLine($"3. {MenuOptions.BuyProduct}");
-    Console.WriteLine($"4. {MenuOptions.ShowAvailableProducts}");
-    Console.WriteLine($"5. {MenuOptions.ShowDepositedAmount}");
-    Console.WriteLine($"6. {MenuOptions.Exit}");
+    Console.WriteLine($"1. {MenuOptions.InsertCoins.GetDescription()}");
+    Console.WriteLine($"2. {MenuOptions.ReturnCoins.GetDescription()}");
+    Console.WriteLine($"3. {MenuOptions.BuyProduct.GetDescription()}");
+    Console.WriteLine($"4. {MenuOptions.ShowAvailableProducts.GetDescription()}");
+    Console.WriteLine($"5. {MenuOptions.ShowDepositedAmount.GetDescription()}");
+    Console.WriteLine($"6. {MenuOptions.Exit.GetDescription()}");
   }
 
-  private static string GetUserInput()
+  private static MenuOptions GetUserMenuChoice()
   {
     Console.WriteLine();
     Console.Write("Enter your choice: ");
 
     var input = Console.ReadLine();
-    return input ?? "-1";
+    if (int.TryParse(input, out var choice) && choice > 0 && choice <= Enum.GetValues(typeof(MenuOptions)).Length)
+      return (MenuOptions)(choice - 1);
+
+    return MenuOptions.Invalid;
   }
 
-  private async Task<bool> HandleChoiceAsync(string choice)
+  private async Task<bool> HandleChoiceAsync(MenuOptions choice)
   {
     Console.WriteLine();
 
     switch (choice)
     {
-      case "1":
+      case MenuOptions.InsertCoins:
         await AcceptCoins();
         break;
 
-      case "2":
+      case MenuOptions.ReturnCoins:
         await ReturnCoins();
         break;
 
-      case "3":
+      case MenuOptions.BuyProduct:
         await BuyProduct();
         break;
 
-      case "4":
+      case MenuOptions.ShowAvailableProducts:
         await ShowAvailableProducts();
         break;
 
-      case "5":
+      case MenuOptions.ShowDepositedAmount:
         await ShowDepositedAmount();
         break;
 
-      case "6":
-        Console.WriteLine("You selected Exit");
+      case MenuOptions.Exit:
+        Console.WriteLine("Exiting...");
+        break;
+
+      case MenuOptions.Invalid:
+        Console.WriteLine("Invalid Choice...");
         break;
 
       default:
-        Console.WriteLine("Invalid choice.");
+        Console.WriteLine("Invalid Choice...");
         break;
     }
 
-    Console.WriteLine();
-
-    return choice == "6";
+    return choice == MenuOptions.Exit;
   }
 }
