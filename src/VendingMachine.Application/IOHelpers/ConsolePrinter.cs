@@ -1,8 +1,8 @@
 ﻿using System.Text;
+using VendingMachine.Application.Enumerations;
 using VendingMachine.Application.Extensions;
-using VendingMachine.Application.IOHelpers;
 
-namespace VendingMachine.App.IOHelpers;
+namespace VendingMachine.Application.IOHelpers;
 
 public class ConsolePrinter : IConsolePrinter
 {

@@ -1,5 +1,4 @@
-﻿using VendingMachine.App.IOHelpers;
-using VendingMachine.Application.Enumerations;
+﻿using VendingMachine.Application.Enumerations;
 
 namespace VendingMachine.Application.IOHelpers;
 

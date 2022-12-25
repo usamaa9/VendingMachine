@@ -1,4 +1,4 @@
-﻿using VendingMachine.App.IOHelpers;
+﻿using VendingMachine.Application.Enumerations;
 using VendingMachine.Application.IOHelpers;
 using VendingMachine.Application.Mediator;
 
