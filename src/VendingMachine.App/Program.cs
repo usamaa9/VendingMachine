@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using VendingMachine.App.Extensions;
+using VendingMachine.Application.ConsolePrinter;
 using VendingMachine.Application.Entities;
 using VendingMachine.Application.Enumerations;
 using VendingMachine.Application.Persistence;
@@ -28,6 +29,9 @@ internal class Program
 
     // Add repositories
     services.AddRepositories();
+
+    // Add the Console printer
+    services.AddSingleton<IConsolePrinter, ConsolePrinter>();
 
     // Add the App to run.
     services.AddTransient<App>();

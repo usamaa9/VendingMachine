@@ -21,24 +21,24 @@ public partial class App
     await _commandBus.SendAsync<AcceptCoinCommand, Unit>(command);
   }
 
-  private static int GetCoinQuantity()
+  private int GetCoinQuantity()
   {
     int coinQuantity;
 
     while (true)
     {
-      Console.Write("Enter coin quantity: ");
+      _consolePrinter.AskUserForCoinQuantity();
       var coinQuantityString = Console.ReadLine();
 
       if (!int.TryParse(coinQuantityString, out var quantity))
       {
-        Console.WriteLine("Please enter a positive integer for the coin quantity.");
+        _consolePrinter.InvalidCoinQuantityMessage();
         continue;
       }
 
       if (quantity <= 0)
       {
-        Console.WriteLine("Please enter a positive integer for the coin quantity.");
+        _consolePrinter.InvalidCoinQuantityMessage();
         continue;
       }
 
@@ -49,12 +49,12 @@ public partial class App
     return coinQuantity;
   }
 
-  private static CoinType GetCoinType()
+  private CoinType GetCoinType()
   {
     CoinType coinType;
     while (true)
     {
-      Console.Write("Enter coin type (10c, 20c, 50c, 1e): ");
+      _consolePrinter.AskUserForCoinType();
       var coinTypeString = Console.ReadLine();
 
       var enumValues = Enum.GetValues(typeof(CoinType)).Cast<CoinType>();
@@ -63,7 +63,7 @@ public partial class App
         string.Equals(v.GetDescription(), coinTypeString, StringComparison.OrdinalIgnoreCase));
       if (coinType == default)
       {
-        Console.WriteLine("Invalid coin type.");
+        _consolePrinter.InvalidCoinTypeMessage();
         continue;
       }
 

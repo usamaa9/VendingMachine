@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using VendingMachine.Application.Extensions;
+using VendingMachine.Application.ConsolePrinter;
 using VendingMachine.Application.Mediator;
 
 namespace VendingMachine.App;
@@ -8,9 +8,12 @@ public partial class App
 {
   private readonly ICommandBus _commandBus;
 
-  public App(ICommandBus commandBus)
+  private readonly IConsolePrinter _consolePrinter;
+
+  public App(ICommandBus commandBus, IConsolePrinter consolePrinter)
   {
     _commandBus = commandBus;
+    _consolePrinter = consolePrinter;
   }
 
   public async Task Run()
@@ -21,11 +24,9 @@ public partial class App
 
     while (!isExitChoice)
     {
-      DisplayMenu();
+      _consolePrinter.DisplayMenu();
 
       var choice = GetUserMenuChoice();
-
-      Console.WriteLine();
 
       switch (choice)
       {
@@ -50,40 +51,14 @@ public partial class App
           break;
 
         case MenuOptions.Exit:
-          Console.WriteLine("Exiting...");
+          _consolePrinter.ExitMessage();
           isExitChoice = true;
           break;
 
         default:
-          Console.WriteLine("Invalid Choice...");
+          _consolePrinter.InvalidMenuChoiceMessage();
           break;
       }
-    }
-  }
-
-  private static void DisplayMenu()
-  {
-    Console.WriteLine("--- Vending Machine ---");
-    Console.WriteLine($"1. {MenuOptions.InsertCoins.GetDescription()}");
-    Console.WriteLine($"2. {MenuOptions.ReturnCoins.GetDescription()}");
-    Console.WriteLine($"3. {MenuOptions.BuyProduct.GetDescription()}");
-    Console.WriteLine($"4. {MenuOptions.ShowAvailableProducts.GetDescription()}");
-    Console.WriteLine($"5. {MenuOptions.ShowDepositedAmount.GetDescription()}");
-    Console.WriteLine($"6. {MenuOptions.Exit.GetDescription()}");
-  }
-
-  private static MenuOptions GetUserMenuChoice()
-  {
-    while (true)
-    {
-      Console.WriteLine();
-      Console.Write("Enter your choice: ");
-
-      var input = Console.ReadLine();
-      if (int.TryParse(input, out var choice) && choice > 0 && choice <= Enum.GetValues(typeof(MenuOptions)).Length)
-        return (MenuOptions)(choice - 1);
-
-      Console.WriteLine("Invalid Choice...");
     }
   }
 }
