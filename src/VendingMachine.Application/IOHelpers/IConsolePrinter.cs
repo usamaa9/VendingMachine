@@ -1,4 +1,4 @@
-﻿namespace VendingMachine.Application.ConsolePrinter;
+﻿namespace VendingMachine.Application.IOHelpers;
 
 public interface IConsolePrinter
 {

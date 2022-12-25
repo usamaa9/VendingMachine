@@ -1,4 +1,6 @@
-﻿namespace VendingMachine.App;
+﻿using VendingMachine.App.IOHelpers;
+
+namespace VendingMachine.App;
 
 public partial class App
 {

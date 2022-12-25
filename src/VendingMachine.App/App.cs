@@ -1,5 +1,6 @@
 ﻿using System.Text;
-using VendingMachine.Application.ConsolePrinter;
+using VendingMachine.App.IOHelpers;
+using VendingMachine.Application.IOHelpers;
 using VendingMachine.Application.Mediator;
 
 namespace VendingMachine.App;

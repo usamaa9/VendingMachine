@@ -1,7 +1,7 @@
-﻿using VendingMachine.Application.ConsolePrinter;
-using VendingMachine.Application.Extensions;
+﻿using VendingMachine.Application.Extensions;
+using VendingMachine.Application.IOHelpers;
 
-namespace VendingMachine.App;
+namespace VendingMachine.App.IOHelpers;
 
 public class ConsolePrinter : IConsolePrinter
 {

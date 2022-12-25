@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace VendingMachine.App;
+namespace VendingMachine.App.IOHelpers;
 
 public enum MenuOptions
 {

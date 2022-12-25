@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using VendingMachine.App.Extensions;
-using VendingMachine.Application.ConsolePrinter;
+using VendingMachine.App.IOHelpers;
 using VendingMachine.Application.Entities;
 using VendingMachine.Application.Enumerations;
+using VendingMachine.Application.IOHelpers;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.App;
