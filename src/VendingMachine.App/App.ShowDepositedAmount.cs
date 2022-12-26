@@ -1,5 +1,5 @@
-﻿using MediatR;
-using VendingMachine.Application.Features.Queries.ShowDepositedAmount;
+﻿using VendingMachine.Application.Enumerations;
+using VendingMachine.Application.Features.Queries.GetDepositedAmount;
 
 namespace VendingMachine.App;
 
@@ -7,8 +7,9 @@ public partial class App
 {
   public async Task ShowDepositedAmount()
   {
-    var query = new ShowDepositedAmountQuery();
+    var result =
+      await _commandBus.SendAsync<GetDepositedAmountQuery, Dictionary<CoinType, int>>(new GetDepositedAmountQuery());
 
-    await _commandBus.SendAsync<ShowDepositedAmountQuery, Unit>(query);
+    _consolePrinter.PrintCoinsInWallet(result.Value!);
   }
 }
