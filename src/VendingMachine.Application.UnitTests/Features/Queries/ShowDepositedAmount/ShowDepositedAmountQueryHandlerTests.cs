@@ -1,8 +1,4 @@
-﻿using Moq;
-using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.Features.Queries.ShowDepositedAmount;
-using VendingMachine.Application.IOHelpers;
-using VendingMachine.Application.Persistence;
+﻿using VendingMachine.Application.Features.Queries.ShowDepositedAmount;
 
 namespace VendingMachine.Application.UnitTests.Features.Queries.ShowDepositedAmount;
 

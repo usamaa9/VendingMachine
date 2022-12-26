@@ -1,6 +1,4 @@
-﻿using VendingMachine.Application.Enumerations;
-
-namespace VendingMachine.Application.Extensions;
+﻿namespace VendingMachine.Application.Extensions;
 
 public static class WalletExtensions
 {

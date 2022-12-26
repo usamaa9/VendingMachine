@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace VendingMachine.Application.Enumerations;
+﻿namespace VendingMachine.Application.Enumerations;
 
 public enum CoinType
 {

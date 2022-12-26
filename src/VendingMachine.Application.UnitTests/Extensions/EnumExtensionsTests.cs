@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using VendingMachine.Application.Extensions;
-
-namespace VendingMachine.Application.UnitTests.Extensions;
+﻿namespace VendingMachine.Application.UnitTests.Extensions;
 
 public class EnumExtensionsTests
 {

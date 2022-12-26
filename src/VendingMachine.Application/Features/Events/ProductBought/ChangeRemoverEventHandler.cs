@@ -1,7 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Persistence;
-
-namespace VendingMachine.Application.Features.Events.ProductBought;
+﻿namespace VendingMachine.Application.Features.Events.ProductBought;
 
 /// <summary>
 /// Removes the coins required to return the change to user from the machine wallet.

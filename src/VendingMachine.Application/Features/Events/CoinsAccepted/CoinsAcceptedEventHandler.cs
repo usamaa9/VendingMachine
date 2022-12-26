@@ -1,7 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.IOHelpers;
-
-namespace VendingMachine.Application.Features.Events.CoinsAccepted;
+﻿namespace VendingMachine.Application.Features.Events.CoinsAccepted;
 
 public class CoinsAcceptedEventHandler : INotificationHandler<CoinsAcceptedEvent>
 {

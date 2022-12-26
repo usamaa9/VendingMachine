@@ -1,6 +1,4 @@
-﻿using VendingMachine.Application.Enumerations;
-
-namespace VendingMachine.Application.Persistence;
+﻿namespace VendingMachine.Application.Persistence;
 
 public interface IMachineWallet
 {

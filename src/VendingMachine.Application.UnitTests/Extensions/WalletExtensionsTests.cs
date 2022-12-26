@@ -1,7 +1,4 @@
-﻿using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.Extensions;
-
-namespace VendingMachine.Application.UnitTests.Extensions;
+﻿namespace VendingMachine.Application.UnitTests.Extensions;
 
 public class WalletExtensionsTests
 {

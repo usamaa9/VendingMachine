@@ -1,8 +1,4 @@
-﻿using Moq;
-using VendingMachine.Application.Entities;
-using VendingMachine.Application.Features.Queries.ShowAvailableProducts;
-using VendingMachine.Application.IOHelpers;
-using VendingMachine.Application.Persistence;
+﻿using VendingMachine.Application.Features.Queries.ShowAvailableProducts;
 
 namespace VendingMachine.Application.UnitTests.Features.Queries.ShowAvailableProducts;
 

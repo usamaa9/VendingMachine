@@ -1,9 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.IOHelpers;
-using VendingMachine.Application.Models;
-using VendingMachine.Application.Persistence;
-
-namespace VendingMachine.Application.Features.Commands.ReturnCoins;
+﻿namespace VendingMachine.Application.Features.Commands.ReturnCoins;
 
 public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Result<Unit>>
 {

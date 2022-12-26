@@ -1,8 +1,4 @@
-﻿using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.Extensions;
-using VendingMachine.Application.Persistence;
-
-namespace VendingMachine.Infrastructure.Persistence;
+﻿namespace VendingMachine.Infrastructure.Persistence;
 
 public class UserWallet : IUserWallet
 {

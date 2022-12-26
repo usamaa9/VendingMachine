@@ -1,8 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.Models;
-
-namespace VendingMachine.Application.Features.Commands.AcceptCoin;
+﻿namespace VendingMachine.Application.Features.Commands.AcceptCoin;
 
 /// <summary>
 /// Command for accepting coins.

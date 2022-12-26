@@ -1,11 +1,5 @@
-﻿using Moq;
-using VendingMachine.Application.Entities;
-using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.Features.Commands.BuyProduct;
+﻿using VendingMachine.Application.Features.Commands.BuyProduct;
 using VendingMachine.Application.Features.Events.ProductBought;
-using VendingMachine.Application.IOHelpers;
-using VendingMachine.Application.Mediator;
-using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.UnitTests.Features.Commands.BuyProduct;
 

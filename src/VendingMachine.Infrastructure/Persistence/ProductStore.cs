@@ -1,7 +1,4 @@
-﻿using VendingMachine.Application.Entities;
-using VendingMachine.Application.Persistence;
-
-namespace VendingMachine.Infrastructure.Persistence;
+﻿namespace VendingMachine.Infrastructure.Persistence;
 
 public class ProductStore : IProductStore
 {

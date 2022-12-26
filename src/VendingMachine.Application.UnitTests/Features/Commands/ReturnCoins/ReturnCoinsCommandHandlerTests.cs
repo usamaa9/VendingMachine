@@ -1,7 +1,4 @@
-﻿using Moq;
-using VendingMachine.Application.Features.Commands.ReturnCoins;
-using VendingMachine.Application.IOHelpers;
-using VendingMachine.Application.Persistence;
+﻿using VendingMachine.Application.Features.Commands.ReturnCoins;
 
 namespace VendingMachine.Application.UnitTests.Features.Commands.ReturnCoins;
 

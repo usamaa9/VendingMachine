@@ -1,6 +1,4 @@
-﻿using VendingMachine.Application.Enumerations;
-
-namespace VendingMachine.Application.IOHelpers;
+﻿namespace VendingMachine.Application.IOHelpers;
 
 public interface IUserInput
 {

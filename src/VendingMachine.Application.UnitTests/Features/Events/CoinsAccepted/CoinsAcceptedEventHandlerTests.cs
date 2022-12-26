@@ -1,7 +1,4 @@
-﻿using Moq;
-using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.Features.Events.CoinsAccepted;
-using VendingMachine.Application.IOHelpers;
+﻿using VendingMachine.Application.Features.Events.CoinsAccepted;
 
 namespace VendingMachine.Application.UnitTests.Features.Events.CoinsAccepted;
 

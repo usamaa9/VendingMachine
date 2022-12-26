@@ -1,9 +1,5 @@
-﻿using Moq;
-using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.Features.Commands.AcceptCoin;
+﻿using VendingMachine.Application.Features.Commands.AcceptCoin;
 using VendingMachine.Application.Features.Events.CoinsAccepted;
-using VendingMachine.Application.Mediator;
-using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.UnitTests.Features.Commands.AcceptCoin;
 

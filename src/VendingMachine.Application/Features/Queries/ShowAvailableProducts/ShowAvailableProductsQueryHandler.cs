@@ -1,9 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.IOHelpers;
-using VendingMachine.Application.Models;
-using VendingMachine.Application.Persistence;
-
-namespace VendingMachine.Application.Features.Queries.ShowAvailableProducts;
+﻿namespace VendingMachine.Application.Features.Queries.ShowAvailableProducts;
 
 public class ShowAvailableProductsQueryHandler : IRequestHandler<ShowAvailableProductsQuery, Result<Unit>>
 {

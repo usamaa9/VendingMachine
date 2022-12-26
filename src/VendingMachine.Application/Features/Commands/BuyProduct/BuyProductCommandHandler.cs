@@ -1,9 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Features.Events.ProductBought;
-using VendingMachine.Application.IOHelpers;
-using VendingMachine.Application.Mediator;
-using VendingMachine.Application.Models;
-using VendingMachine.Application.Persistence;
+﻿using VendingMachine.Application.Features.Events.ProductBought;
 
 namespace VendingMachine.Application.Features.Commands.BuyProduct;
 

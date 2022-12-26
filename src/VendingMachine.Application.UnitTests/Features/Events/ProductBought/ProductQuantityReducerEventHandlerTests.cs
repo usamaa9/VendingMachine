@@ -1,6 +1,4 @@
-﻿using Moq;
-using VendingMachine.Application.Features.Events.ProductBought;
-using VendingMachine.Application.Persistence;
+﻿using VendingMachine.Application.Features.Events.ProductBought;
 
 namespace VendingMachine.Application.UnitTests.Features.Events.ProductBought;
 

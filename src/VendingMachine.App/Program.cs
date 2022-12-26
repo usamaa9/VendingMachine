@@ -10,7 +10,7 @@ internal class Program
 
     SeedVendingMachine(serviceProvider);
 
-    var app = serviceProvider.GetService<App>()!;
+    var app = serviceProvider.GetService<ConsoleApp.App>()!;
     await app.Run();
   }
 
@@ -32,7 +32,7 @@ internal class Program
 
 
     // Add the App to run.
-    services.AddTransient<App>();
+    services.AddTransient<ConsoleApp.App>();
     return services;
   }
 

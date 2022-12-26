@@ -1,6 +1,6 @@
 ﻿using VendingMachine.Application.Features.Commands.BuyProduct;
 
-namespace VendingMachine.App;
+namespace VendingMachine.App.ConsoleApp;
 
 public partial class App
 {

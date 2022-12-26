@@ -1,7 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Persistence;
-
-namespace VendingMachine.Application.Features.Events.ProductBought;
+﻿namespace VendingMachine.Application.Features.Events.ProductBought;
 
 /// <summary>
 /// Collects all of the user coins when they buy a product.

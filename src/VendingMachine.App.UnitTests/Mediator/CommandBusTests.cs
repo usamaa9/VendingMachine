@@ -1,8 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using VendingMachine.App.Mediator;
-using VendingMachine.Application.Models;
-
-namespace VendingMachine.App.UnitTests.Mediator;
+﻿namespace VendingMachine.App.UnitTests.Mediator;
 
 public class CommandBusTests
 {

@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace VendingMachine.Application.Extensions;
+﻿namespace VendingMachine.Application.Extensions;
 
 public static class EnumExtensions
 {

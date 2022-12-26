@@ -1,8 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Features.Events.CoinsAccepted;
-using VendingMachine.Application.Mediator;
-using VendingMachine.Application.Models;
-using VendingMachine.Application.Persistence;
+﻿using VendingMachine.Application.Features.Events.CoinsAccepted;
 
 namespace VendingMachine.Application.Features.Commands.AcceptCoin;
 
