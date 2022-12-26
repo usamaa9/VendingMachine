@@ -17,4 +17,5 @@ public interface IConsolePrinter
   void DisplayProducts(List<VendingMachineProduct> products);
   void PrintCoinsInWallet(Dictionary<CoinType, int> wallet);
   void ReturnedCoinsMessage();
+  void DisplayMessage(string? message);
 }

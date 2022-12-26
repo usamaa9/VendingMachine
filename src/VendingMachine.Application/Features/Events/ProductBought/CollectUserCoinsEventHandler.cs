@@ -3,12 +3,15 @@ using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Events.ProductBought;
 
-public class CoinCollectorEventHandler : INotificationHandler<ProductBoughtEvent>
+/// <summary>
+/// Collects all of the user coins when they buy a product.
+/// </summary>
+public class CollectUserCoinsEventHandler : INotificationHandler<ProductBoughtEvent>
 {
   private readonly IMachineWallet _machineWallet;
   private readonly IUserWallet _userWallet;
 
-  public CoinCollectorEventHandler(IUserWallet userWallet, IMachineWallet machineWallet)
+  public CollectUserCoinsEventHandler(IUserWallet userWallet, IMachineWallet machineWallet)
   {
     _userWallet = userWallet;
     _machineWallet = machineWallet;
@@ -16,9 +19,10 @@ public class CoinCollectorEventHandler : INotificationHandler<ProductBoughtEvent
 
   public Task Handle(ProductBoughtEvent notification, CancellationToken cancellationToken)
   {
-    // add all the user wallet coins to the machine wallet and clear the user wallet
+    // add all the user wallet coins to the machine wallet
     foreach (var coin in notification.UserCoins!) _machineWallet.AddCoins(coin.Key, coin.Value);
 
+    // clear the user wallet
     _userWallet.RemoveAllCoins();
 
     return Task.CompletedTask;

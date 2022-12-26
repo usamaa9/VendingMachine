@@ -3,11 +3,14 @@ using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Events.ProductBought;
 
-public class ChangeCalculatorEventHandler : INotificationHandler<ProductBoughtEvent>
+/// <summary>
+/// Removes the coins required to return the change to user from the machine wallet.
+/// </summary>
+public class ChangeRemoverEventHandler : INotificationHandler<ProductBoughtEvent>
 {
   private readonly IMachineWallet _machineWallet;
 
-  public ChangeCalculatorEventHandler(IMachineWallet machineWallet)
+  public ChangeRemoverEventHandler(IMachineWallet machineWallet)
   {
     _machineWallet = machineWallet;
   }
@@ -16,7 +19,6 @@ public class ChangeCalculatorEventHandler : INotificationHandler<ProductBoughtEv
   {
     var changeCoins = notification.ChangeCoins!;
 
-    // remove coins required for change from the machine wallet.
     foreach (var coin in changeCoins) _machineWallet.RemoveCoins(coin.Key, coin.Value);
 
     return Task.CompletedTask;

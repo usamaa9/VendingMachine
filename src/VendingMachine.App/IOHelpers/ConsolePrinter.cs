@@ -75,6 +75,7 @@ public class ConsolePrinter : IConsolePrinter
 
   public void DisplayProducts(List<VendingMachineProduct> products)
   {
+    Console.WriteLine();
     Console.WriteLine("Product Name          | Price       | Available Portions");
     Console.WriteLine("----------------------|-------------|-------------------");
 
@@ -89,6 +90,7 @@ public class ConsolePrinter : IConsolePrinter
   {
     var total = wallet.TotalAmount();
 
+    Console.WriteLine();
     Console.WriteLine("Coin Type | Quantity");
     Console.WriteLine("-------------------");
 
@@ -102,5 +104,11 @@ public class ConsolePrinter : IConsolePrinter
   {
     Console.WriteLine();
     Console.WriteLine("Returning all deposited coins to user.");
+  }
+
+  public void DisplayMessage(string? message)
+  {
+    Console.WriteLine();
+    Console.WriteLine(message);
   }
 }

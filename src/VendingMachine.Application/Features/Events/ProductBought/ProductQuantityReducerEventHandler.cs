@@ -3,6 +3,9 @@ using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Events.ProductBought;
 
+/// <summary>
+/// Removes one portion of the specific product from the machine.
+/// </summary>
 public class ProductQuantityReducerEventHandler : INotificationHandler<ProductBoughtEvent>
 {
   private readonly IProductStore _productStore;
