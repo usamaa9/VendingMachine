@@ -7,8 +7,8 @@ namespace VendingMachine.Application.Features.Queries.GetDepositedAmount;
 
 public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmountQuery, Result<Unit>>
 {
-  private readonly IUserWallet _userWallet;
   private readonly IConsolePrinter _consolePrinter;
+  private readonly IUserWallet _userWallet;
 
   public ShowDepositedAmountQueryHandler(IUserWallet userWallet, IConsolePrinter consolePrinter)
   {
@@ -21,7 +21,7 @@ public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmou
   {
     var coins = _userWallet.GetAllCoins();
 
-    _consolePrinter.PrintCoinsInWallet(coins);
+    _consolePrinter.PrintCoins(coins);
 
     return Task.FromResult(Result.From(Unit.Value));
   }

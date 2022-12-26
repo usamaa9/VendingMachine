@@ -66,6 +66,9 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Resul
       return Result.From(Unit.Value);
     }
 
+    _consolePrinter.DisplayMessage("Thank you");
+    _consolePrinter.PrintChange(changeCoins!);
+
     // Publish the ProductBoughtEvent
     await _commandBus.PublishAsync(new ProductBoughtEvent
     {

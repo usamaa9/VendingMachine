@@ -86,18 +86,37 @@ public class ConsolePrinter : IConsolePrinter
     Console.WriteLine("End of list.");
   }
 
-  public void PrintCoinsInWallet(Dictionary<CoinType, int> wallet)
+  public void PrintChange(Dictionary<CoinType, int> coins)
   {
-    var total = wallet.TotalAmount();
+    var total = coins.TotalAmount();
 
     Console.WriteLine();
+
+    if (total <= 0) return;
+
+    Console.WriteLine("Your Change:");
+    PrintCoins(coins);
+  }
+
+  public void PrintCoins(Dictionary<CoinType, int> coins)
+  {
+    var total = coins.TotalAmount();
+
+    Console.WriteLine();
+
+    if (total <= 0)
+    {
+      Console.WriteLine("No coins");
+      return;
+    }
+
     Console.WriteLine("Coin Type | Quantity");
     Console.WriteLine("-------------------");
 
-    foreach (var entry in wallet) Console.WriteLine($"{entry.Key.GetDescription(),-10} | {entry.Value,3}");
+    foreach (var entry in coins) Console.WriteLine($"{entry.Key.GetDescription(),-10} | {entry.Value,3}");
 
     Console.WriteLine("-------------------");
-    Console.WriteLine($"Total amount: \u20AC{total}e");
+    Console.WriteLine($"Total amount: \u20AC{total:F}");
   }
 
   public void ReturnedCoinsMessage()
