@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using VendingMachine.Application.Features.Events;
+using VendingMachine.Application.Mediator;
 using VendingMachine.Application.Models;
 using VendingMachine.Application.Persistence;
 
@@ -7,17 +9,28 @@ namespace VendingMachine.Application.Features.Commands.AcceptCoin;
 public class AcceptCoinCommandHandler : IRequestHandler<AcceptCoinCommand, Result<Unit>>
 {
   private readonly IUserWallet _userWallet;
+  private readonly ICommandBus _commandBus;
 
   public AcceptCoinCommandHandler(
-    IUserWallet userWallet)
+    IUserWallet userWallet,
+    ICommandBus commandBus)
   {
     _userWallet = userWallet;
+    _commandBus = commandBus;
   }
 
-  public Task<Result<Unit>> Handle(AcceptCoinCommand request, CancellationToken cancellationToken)
+  public async Task<Result<Unit>> Handle(AcceptCoinCommand request, CancellationToken cancellationToken)
   {
     _userWallet.AddCoins(request.CoinType, request.Quantity);
 
-    return Task.FromResult(Result.From(Unit.Value));
+    var coinsAcceptedEvent = new CoinsAcceptedEvent
+    {
+      CoinType = request.CoinType,
+      Quantity = request.Quantity
+    };
+
+    await _commandBus.PublishAsync(coinsAcceptedEvent);
+
+    return Result.From(Unit.Value);
   }
 }

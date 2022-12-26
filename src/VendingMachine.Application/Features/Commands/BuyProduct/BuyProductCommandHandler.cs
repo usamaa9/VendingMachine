@@ -69,7 +69,7 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Resul
     await _commandBus.PublishAsync(new ProductBoughtEvent
     {
       ProductName = product.Name,
-      UserCoins = _userWallet.GetCoins(),
+      UserCoins = _userWallet.GetAllCoins(),
       ChangeCoins = changeCoins
     });
 
