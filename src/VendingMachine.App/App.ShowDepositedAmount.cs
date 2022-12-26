@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using VendingMachine.Application.Features.Queries.GetDepositedAmount;
+using VendingMachine.Application.Features.Queries.ShowDepositedAmount;
 
 namespace VendingMachine.App;
 

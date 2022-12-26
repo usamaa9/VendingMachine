@@ -1,4 +1,4 @@
-namespace VendingMachine.Application.UnitTests
+namespace VendingMachine.Infrastructure.UnitTests
 {
   public class UnitTest1
   {

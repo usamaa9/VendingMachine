@@ -139,6 +139,7 @@ public class BuyProductCommandHandlerTests
     _userWallet.Setup(x => x.TotalAmount()).Returns(100);
     _machineWallet.Setup(x => x.CanGiveChange(50, out coins))
       .Returns(true);
+
     // Act
     await _sut.Handle(_validCommand, CancellationToken.None);
 

@@ -14,7 +14,7 @@ public class CoinsAcceptedEventHandler : INotificationHandler<CoinsAcceptedEvent
 
   public Task Handle(CoinsAcceptedEvent notification, CancellationToken cancellationToken)
   {
-    _consolePrinter.DisplayMessage("Coins Have been accepted.");
+    _consolePrinter.DisplayMessage("Coins have been accepted.");
     return Task.CompletedTask;
   }
 }

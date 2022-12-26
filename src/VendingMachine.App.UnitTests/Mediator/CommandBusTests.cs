@@ -11,7 +11,7 @@ public class CommandBusTests
   {
     // Arrange
     var mediatorMock = new Mock<IMediator>();
-    var command = new SampleCommand { TestField = "123" };
+    var command = new SampleCommand();
     mediatorMock.Setup(x => x.Send(command, default)).ReturnsAsync(Result.From(Unit.Value));
 
     var sut = new CommandBus(mediatorMock.Object);
@@ -28,6 +28,5 @@ public class CommandBusTests
   [ExcludeFromCodeCoverage]
   private class SampleCommand : IRequest<Result<Unit>>
   {
-    public string TestField = null!;
   }
 }

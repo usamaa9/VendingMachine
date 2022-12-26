@@ -5,11 +5,10 @@ using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Queries.ShowAvailableProducts;
 
-internal class
-  ShowAvailableProductsQueryHandler : IRequestHandler<ShowAvailableProductsQuery, Result<Unit>>
+public class ShowAvailableProductsQueryHandler : IRequestHandler<ShowAvailableProductsQuery, Result<Unit>>
 {
-  private readonly IProductStore _productStore;
   private readonly IConsolePrinter _consolePrinter;
+  private readonly IProductStore _productStore;
 
   public ShowAvailableProductsQueryHandler(IProductStore productStore, IConsolePrinter consolePrinter)
   {
