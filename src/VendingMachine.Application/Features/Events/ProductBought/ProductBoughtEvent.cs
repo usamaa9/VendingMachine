@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using VendingMachine.Application.Enumerations;
 
-namespace VendingMachine.Application.Features.Events;
+namespace VendingMachine.Application.Features.Events.ProductBought;
 
 /// <summary>
 /// Event for when a product is bought.

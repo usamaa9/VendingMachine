@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using VendingMachine.Application.Features.Events;
+using VendingMachine.Application.Features.Events.CoinsAccepted;
 using VendingMachine.Application.Mediator;
 using VendingMachine.Application.Models;
 using VendingMachine.Application.Persistence;
@@ -8,8 +8,8 @@ namespace VendingMachine.Application.Features.Commands.AcceptCoin;
 
 public class AcceptCoinCommandHandler : IRequestHandler<AcceptCoinCommand, Result<Unit>>
 {
-  private readonly IUserWallet _userWallet;
   private readonly ICommandBus _commandBus;
+  private readonly IUserWallet _userWallet;
 
   public AcceptCoinCommandHandler(
     IUserWallet userWallet,

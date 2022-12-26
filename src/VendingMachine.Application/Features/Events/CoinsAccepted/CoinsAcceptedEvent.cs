@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using VendingMachine.Application.Enumerations;
 
-namespace VendingMachine.Application.Features.Events;
+namespace VendingMachine.Application.Features.Events.CoinsAccepted;
 
 public class CoinsAcceptedEvent : INotification
 {

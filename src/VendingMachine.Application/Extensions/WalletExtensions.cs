@@ -55,22 +55,6 @@ public static class WalletExtensions
     return total;
   }
 
-  /// <summary>
-  /// Displays the coins.
-  /// </summary>
-  /// <param name="wallet"></param>
-  public static void DisplayCoins(this Dictionary<CoinType, int> wallet)
-  {
-    var total = wallet.TotalAmount();
-
-    Console.WriteLine("Coin Type | Quantity");
-    Console.WriteLine("-------------------");
-
-    foreach (var entry in wallet) Console.WriteLine($"{entry.Key.GetDescription(),-10} | {entry.Value,3}");
-
-    Console.WriteLine("-------------------");
-    Console.WriteLine($"Total amount: \u20AC{total}e");
-  }
 
   /// <summary>
   /// Returns the change in least amount of coins.

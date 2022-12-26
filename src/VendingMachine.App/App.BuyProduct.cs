@@ -1,4 +1,5 @@
-﻿using VendingMachine.Application.Features.Commands.BuyProduct;
+﻿using VendingMachine.Application.Enumerations;
+using VendingMachine.Application.Features.Commands.BuyProduct;
 
 namespace VendingMachine.App;
 
@@ -13,8 +14,9 @@ public partial class App
       ProductName = productName
     };
 
-    var result = await _commandBus.SendAsync<BuyProductCommand, string>(command);
+    var result = await _commandBus.SendAsync<BuyProductCommand, Dictionary<CoinType, int>?>(command);
 
-    Console.WriteLine(result.Value);
+    Console.WriteLine(result.Message);
+    if (result.Value != null) _consolePrinter.PrintCoinsInWallet(result.Value);
   }
 }

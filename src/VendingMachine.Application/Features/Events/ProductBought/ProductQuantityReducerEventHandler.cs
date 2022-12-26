@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using VendingMachine.Application.Persistence;
 
-namespace VendingMachine.Application.Features.Events;
+namespace VendingMachine.Application.Features.Events.ProductBought;
 
 public class ProductQuantityReducerEventHandler : INotificationHandler<ProductBoughtEvent>
 {

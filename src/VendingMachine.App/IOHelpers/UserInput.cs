@@ -1,7 +1,8 @@
 ﻿using VendingMachine.Application.Enumerations;
 using VendingMachine.Application.Extensions;
+using VendingMachine.Application.IOHelpers;
 
-namespace VendingMachine.Application.IOHelpers;
+namespace VendingMachine.App.IOHelpers;
 
 public class UserInput : IUserInput
 {
