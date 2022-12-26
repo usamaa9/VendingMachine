@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    image: vending-machine
+    container_name: vending-machine
+    stdin_open: true
+    tty: true
+    command: ["dotnet", "VendingMachine.App.dll"]

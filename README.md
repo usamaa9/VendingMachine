@@ -1,13 +1,9 @@
 # Vending Machine
 
-A .NET console application for a virtual vending machine.
+A .NET console application for a virtual vending machine. Implemented using the CQRS pattern with MediatR.
 
 ## Usage
 
-### dotnet
+If you have docker installed then in the root directory you can run the following command in the terminal: `docker compose run app`. After the image has finished building the application will start in the same terminal.
 
-To run the app simply run the `run.bat` script. It assumes you have all the platform dependencies installed.
-
-### docker
-
-If you have docker installed then in the root directory you can run the following command: `docker compose up -d`.
+Otherwise, to start the app, run the `app.bat` script. It assumes you have all the platform dependencies installed.
