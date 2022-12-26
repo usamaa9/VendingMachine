@@ -45,7 +45,7 @@ public class MachineWalletTests
 
     // Assert
     Assert.True(canGiveChange);
-    Assert.Equal(2, coins[CoinType.TenCent]);
+    Assert.Equal(2, coins![CoinType.TenCent]);
   }
 
   [Fact]
@@ -59,6 +59,6 @@ public class MachineWalletTests
 
     // Assert
     Assert.False(canGiveChange);
-    Assert.Equal(null, coins);
+    Assert.Null(coins);
   }
 }
