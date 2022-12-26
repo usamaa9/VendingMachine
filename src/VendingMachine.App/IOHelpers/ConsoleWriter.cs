@@ -1,9 +1,9 @@
 ﻿namespace VendingMachine.App.IOHelpers;
 
 [ExcludeFromCodeCoverage]
-public class ConsolePrinter : IConsolePrinter
+public class ConsoleWriter : IConsoleWriter
 {
-  public ConsolePrinter()
+  public ConsoleWriter()
   {
     Console.OutputEncoding = Encoding.UTF8;
   }

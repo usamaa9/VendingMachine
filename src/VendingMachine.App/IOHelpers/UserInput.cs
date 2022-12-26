@@ -2,20 +2,23 @@
 
 public class UserInput : IUserInput
 {
-  private readonly IConsolePrinter _consolePrinter;
+  private readonly IConsoleReader _consoleReader;
+  private readonly IConsoleWriter _consoleWriter;
 
-  public UserInput(IConsolePrinter consolePrinter)
+  public UserInput(IConsoleWriter consoleWriter, IConsoleReader consoleReader)
   {
-    _consolePrinter = consolePrinter;
+    _consoleWriter = consoleWriter;
+    _consoleReader = consoleReader;
   }
+
 
   public CoinType GetCoinType()
   {
     CoinType coinType;
     while (true)
     {
-      _consolePrinter.AskUserForCoinType();
-      var coinTypeString = Console.ReadLine();
+      _consoleWriter.AskUserForCoinType();
+      var coinTypeString = _consoleReader.ReadLine();
 
       var enumValues = Enum.GetValues(typeof(CoinType)).Cast<CoinType>();
 
@@ -23,7 +26,7 @@ public class UserInput : IUserInput
         string.Equals(v.GetDescription(), coinTypeString, StringComparison.OrdinalIgnoreCase));
       if (coinType == default)
       {
-        _consolePrinter.InvalidCoinTypeMessage();
+        _consoleWriter.InvalidCoinTypeMessage();
         continue;
       }
 
@@ -39,18 +42,18 @@ public class UserInput : IUserInput
 
     while (true)
     {
-      _consolePrinter.AskUserForCoinQuantity();
-      var coinQuantityString = Console.ReadLine();
+      _consoleWriter.AskUserForCoinQuantity();
+      var coinQuantityString = _consoleReader.ReadLine();
 
       if (!int.TryParse(coinQuantityString, out var quantity))
       {
-        _consolePrinter.InvalidCoinQuantityMessage();
+        _consoleWriter.InvalidCoinQuantityMessage();
         continue;
       }
 
       if (quantity <= 0)
       {
-        _consolePrinter.InvalidCoinQuantityMessage();
+        _consoleWriter.InvalidCoinQuantityMessage();
         continue;
       }
 
@@ -65,20 +68,20 @@ public class UserInput : IUserInput
   {
     while (true)
     {
-      _consolePrinter.AskUserForMenuChoice();
+      _consoleWriter.AskUserForMenuChoice();
 
-      var input = Console.ReadLine();
+      var input = _consoleReader.ReadLine();
       if (int.TryParse(input, out var choice) && choice > 0 && choice <= Enum.GetValues(typeof(MenuOptions)).Length)
         return (MenuOptions)(choice - 1);
 
-      _consolePrinter.InvalidMenuChoiceMessage();
+      _consoleWriter.InvalidMenuChoiceMessage();
     }
   }
 
   public string? GetProductName()
   {
-    _consolePrinter.AskForProductName();
-    var productName = Console.ReadLine();
+    _consoleWriter.AskForProductName();
+    var productName = _consoleReader.ReadLine();
     return productName;
   }
 }

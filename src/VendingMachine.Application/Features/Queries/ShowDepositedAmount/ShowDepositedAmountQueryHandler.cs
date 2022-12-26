@@ -2,13 +2,13 @@
 
 public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmountQuery, Result<Unit>>
 {
-  private readonly IConsolePrinter _consolePrinter;
+  private readonly IConsoleWriter _consoleWriter;
   private readonly IUserWallet _userWallet;
 
-  public ShowDepositedAmountQueryHandler(IUserWallet userWallet, IConsolePrinter consolePrinter)
+  public ShowDepositedAmountQueryHandler(IUserWallet userWallet, IConsoleWriter consoleWriter)
   {
     _userWallet = userWallet;
-    _consolePrinter = consolePrinter;
+    _consoleWriter = consoleWriter;
   }
 
   public Task<Result<Unit>> Handle(ShowDepositedAmountQuery request,
@@ -16,7 +16,7 @@ public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmou
   {
     var coins = _userWallet.GetAllCoins();
 
-    _consolePrinter.PrintCoins(coins);
+    _consoleWriter.PrintCoins(coins);
 
     return Task.FromResult(Result.From(Unit.Value));
   }

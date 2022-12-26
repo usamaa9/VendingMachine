@@ -4,14 +4,14 @@ public partial class App
 {
   private readonly ICommandBus _commandBus;
 
-  private readonly IConsolePrinter _consolePrinter;
+  private readonly IConsoleWriter _consoleWriter;
 
   private readonly IUserInput _userInput;
 
-  public App(ICommandBus commandBus, IConsolePrinter consolePrinter, IUserInput userInput)
+  public App(ICommandBus commandBus, IConsoleWriter consoleWriter, IUserInput userInput)
   {
     _commandBus = commandBus;
-    _consolePrinter = consolePrinter;
+    _consoleWriter = consoleWriter;
     _userInput = userInput;
   }
 
@@ -21,7 +21,7 @@ public partial class App
 
     while (!isExitChoice)
     {
-      _consolePrinter.DisplayMenu();
+      _consoleWriter.DisplayMenu();
 
       var choice = _userInput.GetUserMenuChoice();
 
@@ -48,12 +48,12 @@ public partial class App
           break;
 
         case MenuOptions.Exit:
-          _consolePrinter.ExitMessage();
+          _consoleWriter.ExitMessage();
           isExitChoice = true;
           break;
 
         default:
-          _consolePrinter.InvalidMenuChoiceMessage();
+          _consoleWriter.InvalidMenuChoiceMessage();
           break;
       }
     }

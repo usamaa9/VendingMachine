@@ -5,7 +5,7 @@ namespace VendingMachine.Application.Features.Commands.BuyProduct;
 public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Result<Unit>>
 {
   private readonly ICommandBus _commandBus;
-  private readonly IConsolePrinter _consolePrinter;
+  private readonly IConsoleWriter _consoleWriter;
   private readonly IMachineWallet _machineWallet;
   private readonly IProductStore _productStore;
   private readonly IUserWallet _userWallet;
@@ -15,13 +15,13 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Resul
     IUserWallet userWallet,
     IMachineWallet machineWallet,
     ICommandBus commandBus,
-    IConsolePrinter consolePrinter)
+    IConsoleWriter consoleWriter)
   {
     _productStore = productStore;
     _userWallet = userWallet;
     _machineWallet = machineWallet;
     _commandBus = commandBus;
-    _consolePrinter = consolePrinter;
+    _consoleWriter = consoleWriter;
   }
 
   public async Task<Result<Unit>> Handle(BuyProductCommand request,
@@ -32,7 +32,7 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Resul
 
     if (product == null)
     {
-      _consolePrinter.DisplayMessage($"Product with name {request.ProductName} does not exist.");
+      _consoleWriter.DisplayMessage($"Product with name {request.ProductName} does not exist.");
 
       return Result.From(Unit.Value);
     }
@@ -40,7 +40,7 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Resul
     // Check if there are any portions of this product left
     if (product.Portions == 0)
     {
-      _consolePrinter.DisplayMessage("Sorry this product is no longer in stock :(");
+      _consoleWriter.DisplayMessage("Sorry this product is no longer in stock :(");
       return Result.From(Unit.Value);
     }
 
@@ -49,20 +49,20 @@ public class BuyProductCommandHandler : IRequestHandler<BuyProductCommand, Resul
 
     if (change < 0)
     {
-      _consolePrinter.DisplayMessage("Insufficient amount to buy the product.");
+      _consoleWriter.DisplayMessage("Insufficient amount to buy the product.");
       return Result.From(Unit.Value);
     }
 
     // Check if machine has coins to give change.
     if (!_machineWallet.CanGiveChange(change, out var changeCoins))
     {
-      _consolePrinter.DisplayMessage(
+      _consoleWriter.DisplayMessage(
         "Sorry, I don't have change for the deposited amount. Please use exact coins for purchase.");
       return Result.From(Unit.Value);
     }
 
-    _consolePrinter.DisplayMessage("Thank you");
-    _consolePrinter.PrintChange(changeCoins!);
+    _consoleWriter.DisplayMessage("Thank you");
+    _consoleWriter.PrintChange(changeCoins!);
 
     // Publish the ProductBoughtEvent
     await _commandBus.PublishAsync(new ProductBoughtEvent

@@ -5,13 +5,13 @@ namespace VendingMachine.Application.UnitTests.Features.Queries.ShowAvailablePro
 public class ShowAvailableProductsQueryHandlerTests
 {
   private readonly ShowAvailableProductsQueryHandler _handler;
-  private readonly Mock<IConsolePrinter> _mockConsolePrinter;
+  private readonly Mock<IConsoleWriter> _mockConsolePrinter;
   private readonly Mock<IProductStore> _mockProductStore;
   private readonly ShowAvailableProductsQuery _validQuery;
 
   public ShowAvailableProductsQueryHandlerTests()
   {
-    _mockConsolePrinter = new Mock<IConsolePrinter>();
+    _mockConsolePrinter = new Mock<IConsoleWriter>();
     _mockProductStore = new Mock<IProductStore>();
     _handler = new ShowAvailableProductsQueryHandler(
       _mockProductStore.Object, _mockConsolePrinter.Object);

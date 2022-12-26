@@ -2,13 +2,13 @@
 
 public class ShowAvailableProductsQueryHandler : IRequestHandler<ShowAvailableProductsQuery, Result<Unit>>
 {
-  private readonly IConsolePrinter _consolePrinter;
+  private readonly IConsoleWriter _consoleWriter;
   private readonly IProductStore _productStore;
 
-  public ShowAvailableProductsQueryHandler(IProductStore productStore, IConsolePrinter consolePrinter)
+  public ShowAvailableProductsQueryHandler(IProductStore productStore, IConsoleWriter consoleWriter)
   {
     _productStore = productStore;
-    _consolePrinter = consolePrinter;
+    _consoleWriter = consoleWriter;
   }
 
   public Task<Result<Unit>> Handle(ShowAvailableProductsQuery request,
@@ -17,7 +17,7 @@ public class ShowAvailableProductsQueryHandler : IRequestHandler<ShowAvailablePr
     // Display all the products here using the productsRepo
     var products = _productStore.GetInStockProducts();
 
-    _consolePrinter.DisplayProducts(products);
+    _consoleWriter.DisplayProducts(products);
 
     return Task.FromResult(Result.From(Unit.Value));
   }

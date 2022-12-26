@@ -2,19 +2,19 @@
 
 public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Result<Unit>>
 {
-  private readonly IConsolePrinter _consolePrinter;
+  private readonly IConsoleWriter _consoleWriter;
   private readonly IUserWallet _userWallet;
 
-  public ReturnCoinsCommandHandler(IUserWallet userWallet, IConsolePrinter consolePrinter)
+  public ReturnCoinsCommandHandler(IUserWallet userWallet, IConsoleWriter consoleWriter)
   {
     _userWallet = userWallet;
-    _consolePrinter = consolePrinter;
+    _consoleWriter = consoleWriter;
   }
 
   public Task<Result<Unit>> Handle(ReturnCoinsCommand request, CancellationToken cancellationToken)
   {
     _userWallet.RemoveAllCoins();
-    _consolePrinter.ReturnedCoinsMessage();
+    _consoleWriter.ReturnedCoinsMessage();
 
     return Task.FromResult(Result.From(Unit.Value));
   }

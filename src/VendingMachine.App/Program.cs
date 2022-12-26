@@ -25,7 +25,7 @@ internal class Program
     services.AddRepositories();
 
     // Add the Console printer
-    services.AddSingleton<IConsolePrinter, ConsolePrinter>();
+    services.AddSingleton<IConsoleWriter, ConsoleWriter>();
 
     // Add the user input helper
     services.AddSingleton<IUserInput, UserInput>();

@@ -8,7 +8,8 @@ public class CommandBusTests
     // Arrange
     var mediatorMock = new Mock<IMediator>();
     var command = new SampleCommand();
-    mediatorMock.Setup(x => x.Send(command, default)).ReturnsAsync(Result.From(Unit.Value));
+    var mediatorResult = Result.From(Unit.Value);
+    mediatorMock.Setup(x => x.Send(command, default)).ReturnsAsync(mediatorResult);
 
     var sut = new CommandBus(mediatorMock.Object);
 
@@ -17,7 +18,7 @@ public class CommandBusTests
       command);
 
     // Assert
-    ((object)result).ShouldNotBeNull();
+    Assert.Equal(mediatorResult, result);
     mediatorMock.Verify(x => x.Send(command, default), Times.Once);
   }
 

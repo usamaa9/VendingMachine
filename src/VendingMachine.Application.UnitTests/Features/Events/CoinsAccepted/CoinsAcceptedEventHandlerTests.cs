@@ -5,12 +5,12 @@ namespace VendingMachine.Application.UnitTests.Features.Events.CoinsAccepted;
 public class CoinsAcceptedEventHandlerTests
 {
   private readonly CoinsAcceptedEventHandler _handler;
-  private readonly Mock<IConsolePrinter> _mockConsolePrinter;
+  private readonly Mock<IConsoleWriter> _mockConsolePrinter;
   private readonly CoinsAcceptedEvent _validEvent;
 
   public CoinsAcceptedEventHandlerTests()
   {
-    _mockConsolePrinter = new Mock<IConsolePrinter>();
+    _mockConsolePrinter = new Mock<IConsoleWriter>();
     _handler = new CoinsAcceptedEventHandler(_mockConsolePrinter.Object);
     _validEvent = new CoinsAcceptedEvent
     {

@@ -6,7 +6,7 @@ namespace VendingMachine.Application.UnitTests.Features.Commands.BuyProduct;
 public class BuyProductCommandHandlerTests
 {
   private readonly Mock<ICommandBus> _commandBus;
-  private readonly Mock<IConsolePrinter> _consolePrinter;
+  private readonly Mock<IConsoleWriter> _consolePrinter;
   private readonly Mock<IMachineWallet> _machineWallet;
   private readonly Mock<IProductStore> _productStore;
   private readonly BuyProductCommandHandler _sut;
@@ -17,7 +17,7 @@ public class BuyProductCommandHandlerTests
   public BuyProductCommandHandlerTests()
   {
     _commandBus = new Mock<ICommandBus>();
-    _consolePrinter = new Mock<IConsolePrinter>();
+    _consolePrinter = new Mock<IConsoleWriter>();
     _machineWallet = new Mock<IMachineWallet>();
     _productStore = new Mock<IProductStore>();
     _userWallet = new Mock<IUserWallet>();

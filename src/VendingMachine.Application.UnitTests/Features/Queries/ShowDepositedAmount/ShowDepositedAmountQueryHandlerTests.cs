@@ -5,13 +5,13 @@ namespace VendingMachine.Application.UnitTests.Features.Queries.ShowDepositedAmo
 public class ShowDepositedAmountQueryHandlerTests
 {
   private readonly ShowDepositedAmountQueryHandler _handler;
-  private readonly Mock<IConsolePrinter> _mockConsolePrinter;
+  private readonly Mock<IConsoleWriter> _mockConsolePrinter;
   private readonly Mock<IUserWallet> _mockUserWallet;
   private readonly ShowDepositedAmountQuery _validQuery;
 
   public ShowDepositedAmountQueryHandlerTests()
   {
-    _mockConsolePrinter = new Mock<IConsolePrinter>();
+    _mockConsolePrinter = new Mock<IConsoleWriter>();
     _mockUserWallet = new Mock<IUserWallet>();
     _handler = new ShowDepositedAmountQueryHandler(
       _mockUserWallet.Object, _mockConsolePrinter.Object);

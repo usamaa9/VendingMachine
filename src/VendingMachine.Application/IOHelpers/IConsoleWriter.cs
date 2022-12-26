@@ -1,6 +1,6 @@
 ﻿namespace VendingMachine.Application.IOHelpers;
 
-public interface IConsolePrinter
+public interface IConsoleWriter
 {
   void DisplayMenu();
   void AskUserForMenuChoice();

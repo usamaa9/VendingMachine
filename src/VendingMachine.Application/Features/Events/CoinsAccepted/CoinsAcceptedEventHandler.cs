@@ -2,16 +2,16 @@
 
 public class CoinsAcceptedEventHandler : INotificationHandler<CoinsAcceptedEvent>
 {
-  private readonly IConsolePrinter _consolePrinter;
+  private readonly IConsoleWriter _consoleWriter;
 
-  public CoinsAcceptedEventHandler(IConsolePrinter consolePrinter)
+  public CoinsAcceptedEventHandler(IConsoleWriter consoleWriter)
   {
-    _consolePrinter = consolePrinter;
+    _consoleWriter = consoleWriter;
   }
 
   public Task Handle(CoinsAcceptedEvent notification, CancellationToken cancellationToken)
   {
-    _consolePrinter.DisplayMessage("Coins have been accepted.");
+    _consoleWriter.DisplayMessage("Coins have been accepted.");
     return Task.CompletedTask;
   }
 }

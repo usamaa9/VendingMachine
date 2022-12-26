@@ -5,13 +5,13 @@ namespace VendingMachine.Application.UnitTests.Features.Commands.ReturnCoins;
 public class ReturnCoinsCommandHandlerTests
 {
   private readonly ReturnCoinsCommandHandler _handler;
-  private readonly Mock<IConsolePrinter> _mockConsolePrinter;
+  private readonly Mock<IConsoleWriter> _mockConsolePrinter;
   private readonly Mock<IUserWallet> _mockUserWallet;
   private readonly ReturnCoinsCommand _validCommand;
 
   public ReturnCoinsCommandHandlerTests()
   {
-    _mockConsolePrinter = new Mock<IConsolePrinter>();
+    _mockConsolePrinter = new Mock<IConsoleWriter>();
     _mockUserWallet = new Mock<IUserWallet>();
     _handler = new ReturnCoinsCommandHandler(
       _mockUserWallet.Object, _mockConsolePrinter.Object);
