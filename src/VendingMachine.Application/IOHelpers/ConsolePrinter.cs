@@ -96,4 +96,10 @@ public class ConsolePrinter : IConsolePrinter
     Console.WriteLine("-------------------");
     Console.WriteLine($"Total amount: \u20AC{total}e");
   }
+
+  public void ReturnedCoinsMessage()
+  {
+    Console.WriteLine();
+    Console.WriteLine("Returning all deposited coins to user.");
+  }
 }

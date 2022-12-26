@@ -16,8 +16,7 @@ public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Res
   public Task<Result<Unit>> Handle(ReturnCoinsCommand request, CancellationToken cancellationToken)
   {
     _userWallet.RemoveAllCoins();
-    Console.WriteLine("Returning all coins to user.");
-    Console.WriteLine();
+
     return Task.FromResult(Result.From(Unit.Value));
   }
 }

@@ -1,5 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Features.Commands.BuyProduct;
+﻿using VendingMachine.Application.Features.Commands.BuyProduct;
 
 namespace VendingMachine.App;
 
@@ -14,6 +13,8 @@ public partial class App
       ProductName = productName
     };
 
-    await _commandBus.SendAsync<BuyProductCommand, Unit>(command);
+    var result = await _commandBus.SendAsync<BuyProductCommand, string>(command);
+
+    Console.WriteLine(result.Value);
   }
 }

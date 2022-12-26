@@ -7,7 +7,7 @@ namespace VendingMachine.Application.Features.Commands.BuyProduct;
 /// Command to buy a product.
 /// <seealso cref="BuyProductCommandHandler"/>
 /// </summary>
-public class BuyProductCommand : IRequest<Result<Unit>>
+public class BuyProductCommand : IRequest<Result<string>>
 {
   public string? ProductName { get; set; }
 }
