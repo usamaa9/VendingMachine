@@ -11,7 +11,7 @@ public class UserWallet : IUserWallet
     Wallet = new Dictionary<CoinType, int>();
   }
 
-  private Dictionary<CoinType, int> Wallet { get; }
+  public Dictionary<CoinType, int> Wallet { get; }
 
   public void AddCoins(CoinType coinType, int quantity)
   {

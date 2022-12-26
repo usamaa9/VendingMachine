@@ -11,7 +11,7 @@ public class MachineWallet : IMachineWallet
     Wallet = new Dictionary<CoinType, int>();
   }
 
-  private Dictionary<CoinType, int> Wallet { get; }
+  public Dictionary<CoinType, int> Wallet { get; }
 
   public void AddCoins(CoinType coinType, int quantity)
   {

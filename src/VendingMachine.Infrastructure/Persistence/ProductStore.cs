@@ -5,7 +5,7 @@ namespace VendingMachine.Infrastructure.Persistence;
 
 public class ProductStore : IProductStore
 {
-  private List<VendingMachineProduct> Products { get; } = new();
+  public List<VendingMachineProduct> Products { get; } = new();
 
   public VendingMachineProduct? GetProductWithName(string? name)
   {
