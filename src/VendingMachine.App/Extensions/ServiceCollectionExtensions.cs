@@ -1,16 +1,9 @@
-﻿using System.Reflection;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using VendingMachine.App.Mediator;
-using VendingMachine.Application.Mediator;
-using VendingMachine.Application.Persistence;
-using VendingMachine.Infrastructure.Persistence;
-
-namespace VendingMachine.App.Extensions;
+﻿namespace VendingMachine.App.Extensions;
 
 /// <summary>
 /// Extension methods for <see cref="IServiceCollection"/>.
 /// </summary>
+[ExcludeFromCodeCoverage]
 public static class ServiceCollectionExtensions
 {
   /// <summary>

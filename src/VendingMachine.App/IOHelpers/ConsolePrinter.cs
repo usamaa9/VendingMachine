@@ -1,11 +1,6 @@
-﻿using System.Text;
-using VendingMachine.Application.Entities;
-using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.Extensions;
-using VendingMachine.Application.IOHelpers;
+﻿namespace VendingMachine.App.IOHelpers;
 
-namespace VendingMachine.App.IOHelpers;
-
+[ExcludeFromCodeCoverage]
 public class ConsolePrinter : IConsolePrinter
 {
   public ConsolePrinter()

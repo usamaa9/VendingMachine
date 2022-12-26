@@ -1,0 +1,16 @@
+﻿global using System.Diagnostics.CodeAnalysis;
+global using System.Reflection;
+global using MediatR;
+global using Microsoft.Extensions.DependencyInjection;
+global using VendingMachine.App.Mediator;
+global using VendingMachine.Application.Mediator;
+global using VendingMachine.Application.Persistence;
+global using VendingMachine.Infrastructure.Persistence;
+global using VendingMachine.Application.Enumerations;
+global using VendingMachine.Application.IOHelpers;
+global using VendingMachine.App.Extensions;
+global using VendingMachine.App.IOHelpers;
+global using VendingMachine.Application.Entities;
+global using VendingMachine.Application.Models;
+global using System.Text;
+global using VendingMachine.Application.Extensions;

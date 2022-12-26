@@ -1,5 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Features.Commands.AcceptCoin;
+﻿using VendingMachine.Application.Features.Commands.AcceptCoin;
 
 namespace VendingMachine.App;
 

@@ -1,8 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Mediator;
-using VendingMachine.Application.Models;
-
-namespace VendingMachine.App.Mediator;
+﻿namespace VendingMachine.App.Mediator;
 
 public class CommandBus : ICommandBus
 {

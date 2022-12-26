@@ -1,5 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Features.Commands.BuyProduct;
+﻿using VendingMachine.Application.Features.Commands.BuyProduct;
 
 namespace VendingMachine.App;
 

@@ -1,13 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using VendingMachine.App.Extensions;
-using VendingMachine.App.IOHelpers;
-using VendingMachine.Application.Entities;
-using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.IOHelpers;
-using VendingMachine.Application.Persistence;
+﻿namespace VendingMachine.App;
 
-namespace VendingMachine.App;
-
+[ExcludeFromCodeCoverage]
 internal class Program
 {
   private static async Task Main()

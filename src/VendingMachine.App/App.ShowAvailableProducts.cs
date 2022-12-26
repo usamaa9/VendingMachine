@@ -1,5 +1,4 @@
-﻿using MediatR;
-using VendingMachine.Application.Features.Queries.ShowAvailableProducts;
+﻿using VendingMachine.Application.Features.Queries.ShowAvailableProducts;
 
 namespace VendingMachine.App;
 

@@ -1,8 +1,4 @@
-﻿using VendingMachine.Application.Enumerations;
-using VendingMachine.Application.IOHelpers;
-using VendingMachine.Application.Mediator;
-
-namespace VendingMachine.App;
+﻿namespace VendingMachine.App;
 
 public partial class App
 {
