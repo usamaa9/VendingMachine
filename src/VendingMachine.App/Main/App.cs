@@ -1,4 +1,4 @@
-﻿namespace VendingMachine.App.ConsoleApp;
+﻿namespace VendingMachine.ConsoleApp.Main;
 
 public partial class App
 {

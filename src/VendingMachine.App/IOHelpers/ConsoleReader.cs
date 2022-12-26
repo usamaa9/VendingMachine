@@ -1,4 +1,4 @@
-﻿namespace VendingMachine.App.IOHelpers;
+﻿namespace VendingMachine.ConsoleApp.IOHelpers;
 
 [ExcludeFromCodeCoverage]
 public class ConsoleReader : IConsoleReader

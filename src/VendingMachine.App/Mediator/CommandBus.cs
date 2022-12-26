@@ -1,4 +1,4 @@
-﻿namespace VendingMachine.App.Mediator;
+﻿namespace VendingMachine.ConsoleApp.Mediator;
 
 public class CommandBus : ICommandBus
 {

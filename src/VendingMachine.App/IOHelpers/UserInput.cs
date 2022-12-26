@@ -1,4 +1,4 @@
-﻿namespace VendingMachine.App.IOHelpers;
+﻿namespace VendingMachine.ConsoleApp.IOHelpers;
 
 public class UserInput : IUserInput
 {

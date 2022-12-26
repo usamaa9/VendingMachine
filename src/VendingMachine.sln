@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.Application"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.Infrastructure", "VendingMachine.Infrastructure\VendingMachine.Infrastructure.csproj", "{46B0EFED-F385-43A3-8B38-A54048900E03}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.App", "VendingMachine.App\VendingMachine.App.csproj", "{46B3E11C-E66E-41D3-8ABB-BA74379109E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.ConsoleApp", "VendingMachine.App\VendingMachine.ConsoleApp.csproj", "{46B3E11C-E66E-41D3-8ABB-BA74379109E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.App.UnitTests", "VendingMachine.App.UnitTests\VendingMachine.App.UnitTests.csproj", "{92350943-E44F-43DA-9F37-7DD73572B4A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.ConsoleApp.UnitTests", "VendingMachine.App.UnitTests\VendingMachine.ConsoleApp.UnitTests.csproj", "{92350943-E44F-43DA-9F37-7DD73572B4A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.Application.UnitTests", "VendingMachine.Application.UnitTests\VendingMachine.Application.UnitTests.csproj", "{0A8AC624-2614-4B8A-A76D-EF17BC45BA85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.Application.UnitTests", "VendingMachine.Application.UnitTests\VendingMachine.Application.UnitTests.csproj", "{0A8AC624-2614-4B8A-A76D-EF17BC45BA85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingMachine.Infrastructure.UnitTests", "VendingMachine.Infrastructure.UnitTests\VendingMachine.Infrastructure.UnitTests.csproj", "{3452786C-7A4F-4237-9B54-4E1B497000A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine.Infrastructure.UnitTests", "VendingMachine.Infrastructure.UnitTests\VendingMachine.Infrastructure.UnitTests.csproj", "{3452786C-7A4F-4237-9B54-4E1B497000A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

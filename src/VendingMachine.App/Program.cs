@@ -1,4 +1,8 @@
-﻿namespace VendingMachine.App;
+﻿using VendingMachine.ConsoleApp.Extensions;
+using VendingMachine.ConsoleApp.IOHelpers;
+using VendingMachine.ConsoleApp.Main;
+
+namespace VendingMachine.ConsoleApp;
 
 [ExcludeFromCodeCoverage]
 internal class Program
@@ -10,7 +14,7 @@ internal class Program
 
     SeedVendingMachine(serviceProvider);
 
-    var app = serviceProvider.GetService<ConsoleApp.App>()!;
+    var app = serviceProvider.GetService<App>()!;
     await app.Run();
   }
 
@@ -32,7 +36,7 @@ internal class Program
 
 
     // Add the App to run.
-    services.AddTransient<ConsoleApp.App>();
+    services.AddTransient<App>();
     return services;
   }
 

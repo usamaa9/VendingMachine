@@ -1,4 +1,6 @@
-﻿namespace VendingMachine.App.UnitTests.IOHelpers;
+﻿using VendingMachine.ConsoleApp.IOHelpers;
+
+namespace VendingMachine.ConsoleApp.UnitTests.IOHelpers;
 
 public class UserInputTests
 {

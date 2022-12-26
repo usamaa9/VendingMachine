@@ -25,7 +25,11 @@
   </ItemGroup>
 
 	<ItemGroup>
-    <ProjectReference Include="..\VendingMachine.App\VendingMachine.App.csproj" />
+    <ProjectReference Include="..\VendingMachine.App\VendingMachine.ConsoleApp.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="ConsoleApp\" />
+	</ItemGroup>
 
 </Project>

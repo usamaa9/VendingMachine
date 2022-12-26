@@ -1,4 +1,6 @@
-﻿namespace VendingMachine.App.Extensions;
+﻿using VendingMachine.ConsoleApp.Mediator;
+
+namespace VendingMachine.ConsoleApp.Extensions;
 
 /// <summary>
 /// Extension methods for <see cref="IServiceCollection"/>.

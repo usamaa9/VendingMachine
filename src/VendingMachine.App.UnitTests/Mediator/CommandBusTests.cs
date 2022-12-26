@@ -1,4 +1,6 @@
-﻿namespace VendingMachine.App.UnitTests.Mediator;
+﻿using VendingMachine.ConsoleApp.Mediator;
+
+namespace VendingMachine.ConsoleApp.UnitTests.Mediator;
 
 public class CommandBusTests
 {
