@@ -4,17 +4,17 @@ namespace VendingMachine.Application.UnitTests.Features.Queries.ShowAvailablePro
 
 public class ShowAvailableProductsQueryHandlerTests
 {
+  private readonly Mock<IConsoleWriter> _consoleWriter;
   private readonly ShowAvailableProductsQueryHandler _handler;
-  private readonly Mock<IConsoleWriter> _mockConsolePrinter;
-  private readonly Mock<IProductStore> _mockProductStore;
+  private readonly Mock<IProductStore> _productStore;
   private readonly ShowAvailableProductsQuery _validQuery;
 
   public ShowAvailableProductsQueryHandlerTests()
   {
-    _mockConsolePrinter = new Mock<IConsoleWriter>();
-    _mockProductStore = new Mock<IProductStore>();
+    _consoleWriter = new Mock<IConsoleWriter>();
+    _productStore = new Mock<IProductStore>();
     _handler = new ShowAvailableProductsQueryHandler(
-      _mockProductStore.Object, _mockConsolePrinter.Object);
+      _productStore.Object, _consoleWriter.Object);
     _validQuery = new ShowAvailableProductsQuery();
   }
 
@@ -28,12 +28,12 @@ public class ShowAvailableProductsQueryHandlerTests
       new() { Name = "Soda", Price = 100, Portions = 3 }
     };
 
-    _mockProductStore.Setup(x => x.GetInStockProducts()).Returns(vendingMachineProducts);
+    _productStore.Setup(x => x.GetInStockProducts()).Returns(vendingMachineProducts);
 
     // Act
     await _handler.Handle(_validQuery, CancellationToken.None);
 
     // Assert
-    _mockConsolePrinter.Verify(x => x.DisplayProducts(vendingMachineProducts), Times.Once());
+    _consoleWriter.Verify(x => x.DisplayProducts(vendingMachineProducts), Times.Once());
   }
 }

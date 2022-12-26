@@ -4,17 +4,17 @@ namespace VendingMachine.Application.UnitTests.Features.Commands.ReturnCoins;
 
 public class ReturnCoinsCommandHandlerTests
 {
+  private readonly Mock<IConsoleWriter> _consolePrinter;
   private readonly ReturnCoinsCommandHandler _handler;
-  private readonly Mock<IConsoleWriter> _mockConsolePrinter;
-  private readonly Mock<IUserWallet> _mockUserWallet;
+  private readonly Mock<IUserWallet> _userWallet;
   private readonly ReturnCoinsCommand _validCommand;
 
   public ReturnCoinsCommandHandlerTests()
   {
-    _mockConsolePrinter = new Mock<IConsoleWriter>();
-    _mockUserWallet = new Mock<IUserWallet>();
+    _consolePrinter = new Mock<IConsoleWriter>();
+    _userWallet = new Mock<IUserWallet>();
     _handler = new ReturnCoinsCommandHandler(
-      _mockUserWallet.Object, _mockConsolePrinter.Object);
+      _userWallet.Object, _consolePrinter.Object);
     _validCommand = new ReturnCoinsCommand();
   }
 
@@ -25,7 +25,7 @@ public class ReturnCoinsCommandHandlerTests
     await _handler.Handle(_validCommand, CancellationToken.None);
 
     // Assert
-    _mockUserWallet.Verify(x => x.RemoveAllCoins(), Times.Once());
-    _mockConsolePrinter.Verify(x => x.ReturnedCoinsMessage(), Times.Once());
+    _userWallet.Verify(x => x.RemoveAllCoins(), Times.Once());
+    _consolePrinter.Verify(x => x.ReturnedCoinsMessage(), Times.Once());
   }
 }

@@ -5,13 +5,13 @@ namespace VendingMachine.Application.UnitTests.Features.Events.ProductBought;
 public class ProductQuantityReducerEventHandlerTests
 {
   private readonly ProductQuantityReducerEventHandler _handler;
-  private readonly Mock<IProductStore> _mockProductStore;
+  private readonly Mock<IProductStore> _productStore;
   private readonly ProductBoughtEvent _validEvent;
 
   public ProductQuantityReducerEventHandlerTests()
   {
-    _mockProductStore = new Mock<IProductStore>();
-    _handler = new ProductQuantityReducerEventHandler(_mockProductStore.Object);
+    _productStore = new Mock<IProductStore>();
+    _handler = new ProductQuantityReducerEventHandler(_productStore.Object);
     _validEvent = new ProductBoughtEvent
     {
       ProductName = "Candy"
@@ -25,7 +25,7 @@ public class ProductQuantityReducerEventHandlerTests
     await _handler.Handle(_validEvent, CancellationToken.None);
 
     // Assert
-    _mockProductStore.Verify(
+    _productStore.Verify(
       x => x.RemoveProductWithName(_validEvent.ProductName),
       Times.Once());
   }

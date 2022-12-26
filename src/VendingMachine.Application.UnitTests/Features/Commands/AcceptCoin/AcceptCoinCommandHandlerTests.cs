@@ -5,16 +5,16 @@ namespace VendingMachine.Application.UnitTests.Features.Commands.AcceptCoin;
 
 public class AcceptCoinCommandHandlerTests
 {
+  private readonly Mock<ICommandBus> _commandBus;
   private readonly AcceptCoinCommandHandler _handler;
-  private readonly Mock<ICommandBus> _mockCommandBus;
-  private readonly Mock<IUserWallet> _mockUserWallet;
+  private readonly Mock<IUserWallet> _userWallet;
   private readonly AcceptCoinCommand _validCommand;
 
   public AcceptCoinCommandHandlerTests()
   {
-    _mockUserWallet = new Mock<IUserWallet>();
-    _mockCommandBus = new Mock<ICommandBus>();
-    _handler = new AcceptCoinCommandHandler(_mockUserWallet.Object, _mockCommandBus.Object);
+    _userWallet = new Mock<IUserWallet>();
+    _commandBus = new Mock<ICommandBus>();
+    _handler = new AcceptCoinCommandHandler(_userWallet.Object, _commandBus.Object);
     _validCommand = new AcceptCoinCommand
     {
       CoinType = CoinType.FiftyCent,
@@ -29,7 +29,7 @@ public class AcceptCoinCommandHandlerTests
     await _handler.Handle(_validCommand, CancellationToken.None);
 
     // Assert
-    _mockUserWallet.Verify(x => x.AddCoins(_validCommand.CoinType, _validCommand.Quantity), Times.Once());
+    _userWallet.Verify(x => x.AddCoins(_validCommand.CoinType, _validCommand.Quantity), Times.Once());
   }
 
   [Fact]
@@ -39,7 +39,7 @@ public class AcceptCoinCommandHandlerTests
     await _handler.Handle(_validCommand, CancellationToken.None);
 
     // Assert
-    _mockCommandBus.Verify(
+    _commandBus.Verify(
       x => x.PublishAsync(It.Is<CoinsAcceptedEvent>(
         e => e.CoinType == _validCommand.CoinType && e.Quantity == _validCommand.Quantity)),
       Times.Once());

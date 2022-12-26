@@ -5,13 +5,13 @@ namespace VendingMachine.Application.UnitTests.Features.Events.ProductBought;
 public class ChangeRemoverEventHandlerTests
 {
   private readonly ChangeRemoverEventHandler _handler;
-  private readonly Mock<IMachineWallet> _mockMachineWallet;
+  private readonly Mock<IMachineWallet> _machineWallet;
   private readonly ProductBoughtEvent _validEvent;
 
   public ChangeRemoverEventHandlerTests()
   {
-    _mockMachineWallet = new Mock<IMachineWallet>();
-    _handler = new ChangeRemoverEventHandler(_mockMachineWallet.Object);
+    _machineWallet = new Mock<IMachineWallet>();
+    _handler = new ChangeRemoverEventHandler(_machineWallet.Object);
     _validEvent = new ProductBoughtEvent
     {
       ChangeCoins = new Dictionary<CoinType, int>
@@ -28,7 +28,7 @@ public class ChangeRemoverEventHandlerTests
     await _handler.Handle(_validEvent, CancellationToken.None);
 
     // Assert
-    _mockMachineWallet.Verify(
+    _machineWallet.Verify(
       x => x.RemoveCoins(CoinType.FiftyCent, 4), Times.Once);
   }
 }

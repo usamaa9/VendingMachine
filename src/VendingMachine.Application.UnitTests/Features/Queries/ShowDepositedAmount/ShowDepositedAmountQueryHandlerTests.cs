@@ -4,17 +4,17 @@ namespace VendingMachine.Application.UnitTests.Features.Queries.ShowDepositedAmo
 
 public class ShowDepositedAmountQueryHandlerTests
 {
+  private readonly Mock<IConsoleWriter> _consolePrinter;
   private readonly ShowDepositedAmountQueryHandler _handler;
-  private readonly Mock<IConsoleWriter> _mockConsolePrinter;
-  private readonly Mock<IUserWallet> _mockUserWallet;
+  private readonly Mock<IUserWallet> _userWallet;
   private readonly ShowDepositedAmountQuery _validQuery;
 
   public ShowDepositedAmountQueryHandlerTests()
   {
-    _mockConsolePrinter = new Mock<IConsoleWriter>();
-    _mockUserWallet = new Mock<IUserWallet>();
+    _consolePrinter = new Mock<IConsoleWriter>();
+    _userWallet = new Mock<IUserWallet>();
     _handler = new ShowDepositedAmountQueryHandler(
-      _mockUserWallet.Object, _mockConsolePrinter.Object);
+      _userWallet.Object, _consolePrinter.Object);
     _validQuery = new ShowDepositedAmountQuery();
   }
 
@@ -28,12 +28,12 @@ public class ShowDepositedAmountQueryHandlerTests
       { CoinType.FiftyCent, 2 }
     };
 
-    _mockUserWallet.Setup(x => x.GetAllCoins()).Returns(coins);
+    _userWallet.Setup(x => x.GetAllCoins()).Returns(coins);
 
     // Act
     await _handler.Handle(_validQuery, CancellationToken.None);
 
     // Assert
-    _mockConsolePrinter.Verify(x => x.PrintCoins(coins), Times.Once());
+    _consolePrinter.Verify(x => x.PrintCoins(coins), Times.Once());
   }
 }
