@@ -108,7 +108,7 @@ public class ConsoleWriter : IConsoleWriter
     Console.WriteLine("Coin Type | Quantity");
     Console.WriteLine("-------------------");
 
-    foreach (var entry in coins) Console.WriteLine($"{entry.Key.GetDescription(),-10} | {entry.Value,3}");
+    foreach (var entry in coins) Console.WriteLine($"{entry.Key.GetDescription(),-9} | {entry.Value,3}");
 
     Console.WriteLine("-------------------");
     Console.WriteLine($"Total amount: \u20AC{total:F}");

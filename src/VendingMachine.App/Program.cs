@@ -24,10 +24,10 @@ internal class Program
     // Add repositories
     services.AddRepositories();
 
-    // Add the Console printer
+    // Add the IOHelpers
     services.AddSingleton<IConsoleWriter, ConsoleWriter>();
+    services.AddSingleton<IConsoleReader, ConsoleReader>();
 
-    // Add the user input helper
     services.AddSingleton<IUserInput, UserInput>();
 
 

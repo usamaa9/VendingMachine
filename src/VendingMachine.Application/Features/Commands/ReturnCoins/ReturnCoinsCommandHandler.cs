@@ -13,8 +13,10 @@ public class ReturnCoinsCommandHandler : IRequestHandler<ReturnCoinsCommand, Res
 
   public Task<Result<Unit>> Handle(ReturnCoinsCommand request, CancellationToken cancellationToken)
   {
+    var coinsToReturn = _userWallet.GetAllCoins().ToDictionary(x => x.Key, x => x.Value);
     _userWallet.RemoveAllCoins();
     _consoleWriter.ReturnedCoinsMessage();
+    _consoleWriter.PrintCoins(coinsToReturn);
 
     return Task.FromResult(Result.From(Unit.Value));
   }
