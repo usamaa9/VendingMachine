@@ -1,13 +1,12 @@
 ﻿using MediatR;
-using VendingMachine.Application.Enumerations;
 using VendingMachine.Application.Models;
 
 namespace VendingMachine.Application.Features.Queries.GetDepositedAmount;
 
 /// <summary>
 /// Query for displaying User's deposited amount
-/// <seealso cref="GetDepositedAmountQueryHandler"/>
+/// <seealso cref="ShowDepositedAmountQueryHandler"/>
 /// </summary>
-public class GetDepositedAmountQuery : IRequest<Result<Dictionary<CoinType, int>>>
+public class ShowDepositedAmountQuery : IRequest<Result<Unit>>
 {
 }

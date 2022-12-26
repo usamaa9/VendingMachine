@@ -1,28 +1,30 @@
 ﻿using MediatR;
-using VendingMachine.Application.Entities;
+using VendingMachine.Application.IOHelpers;
 using VendingMachine.Application.Models;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Queries.ShowAvailableProducts;
 
 internal class
-  ShowAvailableProductsQueryHandler : IRequestHandler<ShowAvailableProductsQuery, Result<List<VendingMachineProduct>>>
+  ShowAvailableProductsQueryHandler : IRequestHandler<ShowAvailableProductsQuery, Result<Unit>>
 {
   private readonly IProductStore _productStore;
+  private readonly IConsolePrinter _consolePrinter;
 
-  public ShowAvailableProductsQueryHandler(IProductStore productStore)
+  public ShowAvailableProductsQueryHandler(IProductStore productStore, IConsolePrinter consolePrinter)
   {
     _productStore = productStore;
+    _consolePrinter = consolePrinter;
   }
 
-  public Task<Result<List<VendingMachineProduct>>> Handle(ShowAvailableProductsQuery request,
+  public Task<Result<Unit>> Handle(ShowAvailableProductsQuery request,
     CancellationToken cancellationToken)
   {
     // Display all the products here using the productsRepo
     var products = _productStore.GetInStockProducts();
 
-    var result = Result.From(products);
+    _consolePrinter.DisplayProducts(products);
 
-    return Task.FromResult(result);
+    return Task.FromResult(Result.From(Unit.Value));
   }
 }

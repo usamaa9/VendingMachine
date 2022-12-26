@@ -9,6 +9,5 @@ public partial class App
   {
     var returnCoinsCommand = new ReturnCoinsCommand();
     await _commandBus.SendAsync<ReturnCoinsCommand, Unit>(returnCoinsCommand);
-    _consolePrinter.ReturnedCoinsMessage();
   }
 }

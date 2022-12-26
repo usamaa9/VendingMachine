@@ -1,25 +1,28 @@
 ﻿using MediatR;
-using VendingMachine.Application.Enumerations;
+using VendingMachine.Application.IOHelpers;
 using VendingMachine.Application.Models;
 using VendingMachine.Application.Persistence;
 
 namespace VendingMachine.Application.Features.Queries.GetDepositedAmount;
 
-public class
-  GetDepositedAmountQueryHandler : IRequestHandler<GetDepositedAmountQuery, Result<Dictionary<CoinType, int>>>
+public class ShowDepositedAmountQueryHandler : IRequestHandler<ShowDepositedAmountQuery, Result<Unit>>
 {
   private readonly IUserWallet _userWallet;
+  private readonly IConsolePrinter _consolePrinter;
 
-  public GetDepositedAmountQueryHandler(IUserWallet userWallet)
+  public ShowDepositedAmountQueryHandler(IUserWallet userWallet, IConsolePrinter consolePrinter)
   {
     _userWallet = userWallet;
+    _consolePrinter = consolePrinter;
   }
 
-  public Task<Result<Dictionary<CoinType, int>>> Handle(GetDepositedAmountQuery request,
+  public Task<Result<Unit>> Handle(ShowDepositedAmountQuery request,
     CancellationToken cancellationToken)
   {
     var coins = _userWallet.GetAllCoins();
 
-    return Task.FromResult(Result.From(coins));
+    _consolePrinter.PrintCoinsInWallet(coins);
+
+    return Task.FromResult(Result.From(Unit.Value));
   }
 }
