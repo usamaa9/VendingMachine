@@ -12,12 +12,12 @@ public class ConsoleWriter : IConsoleWriter
   {
     Console.WriteLine();
     Console.WriteLine("--- Vending Machine ---");
-    Console.WriteLine($"1. {MenuOptions.InsertCoins.GetDescription()}");
-    Console.WriteLine($"2. {MenuOptions.ReturnCoins.GetDescription()}");
-    Console.WriteLine($"3. {MenuOptions.BuyProduct.GetDescription()}");
-    Console.WriteLine($"4. {MenuOptions.ShowAvailableProducts.GetDescription()}");
-    Console.WriteLine($"5. {MenuOptions.ShowDepositedAmount.GetDescription()}");
-    Console.WriteLine($"6. {MenuOptions.Exit.GetDescription()}");
+    Console.WriteLine($"1. {MenuOption.InsertCoins.GetDescription()}");
+    Console.WriteLine($"2. {MenuOption.ReturnCoins.GetDescription()}");
+    Console.WriteLine($"3. {MenuOption.BuyProduct.GetDescription()}");
+    Console.WriteLine($"4. {MenuOption.ShowAvailableProducts.GetDescription()}");
+    Console.WriteLine($"5. {MenuOption.ShowDepositedAmount.GetDescription()}");
+    Console.WriteLine($"6. {MenuOption.Exit.GetDescription()}");
   }
 
   public void AskUserForMenuChoice()

@@ -64,15 +64,15 @@ public class UserInput : IUserInput
     return coinQuantity;
   }
 
-  public MenuOptions GetUserMenuChoice()
+  public MenuOption GetUserMenuChoice()
   {
     while (true)
     {
       _consoleWriter.AskUserForMenuChoice();
 
       var input = _consoleReader.ReadLine();
-      if (int.TryParse(input, out var choice) && choice > 0 && choice <= Enum.GetValues(typeof(MenuOptions)).Length)
-        return (MenuOptions)(choice - 1);
+      if (int.TryParse(input, out var choice) && choice > 0 && choice <= Enum.GetValues(typeof(MenuOption)).Length)
+        return (MenuOption)(choice - 1);
 
       _consoleWriter.InvalidMenuChoiceMessage();
     }

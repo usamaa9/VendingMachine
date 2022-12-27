@@ -1,6 +1,6 @@
 ﻿namespace VendingMachine.Application.Enumerations;
 
-public enum MenuOptions
+public enum MenuOption
 {
   [Description("Insert coins")] InsertCoins,
   [Description("Return coins")] ReturnCoins,

@@ -78,7 +78,7 @@ public class UserInputTests
     var result = _sut.GetUserMenuChoice();
 
     // Assert
-    result.ShouldBe(MenuOptions.InsertCoins);
+    result.ShouldBe(MenuOption.InsertCoins);
   }
 
   [Fact]
@@ -92,7 +92,7 @@ public class UserInputTests
 
     // Assert
     _consoleWriter.Verify(x => x.InvalidMenuChoiceMessage(), Times.Exactly(1));
-    result.ShouldBe(MenuOptions.InsertCoins);
+    result.ShouldBe(MenuOption.InsertCoins);
   }
 
   [Fact]

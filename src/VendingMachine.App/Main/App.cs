@@ -27,27 +27,27 @@ public partial class App
 
       switch (choice)
       {
-        case MenuOptions.InsertCoins:
+        case MenuOption.InsertCoins:
           await AcceptCoins();
           break;
 
-        case MenuOptions.ReturnCoins:
+        case MenuOption.ReturnCoins:
           await ReturnCoins();
           break;
 
-        case MenuOptions.BuyProduct:
+        case MenuOption.BuyProduct:
           await BuyProduct();
           break;
 
-        case MenuOptions.ShowAvailableProducts:
+        case MenuOption.ShowAvailableProducts:
           await ShowAvailableProducts();
           break;
 
-        case MenuOptions.ShowDepositedAmount:
+        case MenuOption.ShowDepositedAmount:
           await ShowDepositedAmount();
           break;
 
-        case MenuOptions.Exit:
+        case MenuOption.Exit:
           _consoleWriter.ExitMessage();
           isExitChoice = true;
           break;

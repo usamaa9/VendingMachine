@@ -4,7 +4,7 @@ public interface IUserInput
 {
   CoinType GetCoinType();
   int GetCoinQuantity();
-  MenuOptions GetUserMenuChoice();
+  MenuOption GetUserMenuChoice();
 
   string? GetProductName();
 }
