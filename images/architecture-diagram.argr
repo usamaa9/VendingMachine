@@ -1,0 +1,17 @@
+<ArchitectureGraph>
+  <Module Identifier="179EA6FA-53CE-4E94-950D-EC018BD2ABEA" Name="VendingMachine.Application" />
+  <Module Identifier="46B0EFED-F385-43A3-8B38-A54048900E03" Name="VendingMachine.Infrastructure" />
+  <Module Identifier="46B3E11C-E66E-41D3-8ABB-BA74379109E1" Name="VendingMachine.ConsoleApp" />
+  <Module Identifier="92350943-E44F-43DA-9F37-7DD73572B4A1" Name="VendingMachine.ConsoleApp.UnitTests" />
+  <Module Identifier="0A8AC624-2614-4B8A-A76D-EF17BC45BA85" Name="VendingMachine.Application.UnitTests" />
+  <Module Identifier="3452786C-7A4F-4237-9B54-4E1B497000A4" Name="VendingMachine.Infrastructure.UnitTests" />
+  <Reference Identifier="46B0EFED-F385-43A3-8B38-A54048900E03/r:VendingMachine.Application" SourceId="46B0EFED-F385-43A3-8B38-A54048900E03" Name="VendingMachine.Application" TargetId="179EA6FA-53CE-4E94-950D-EC018BD2ABEA" />
+  <Reference Identifier="46B3E11C-E66E-41D3-8ABB-BA74379109E1/r:VendingMachine.Application" SourceId="46B3E11C-E66E-41D3-8ABB-BA74379109E1" Name="VendingMachine.Application" TargetId="179EA6FA-53CE-4E94-950D-EC018BD2ABEA" />
+  <Reference Identifier="46B3E11C-E66E-41D3-8ABB-BA74379109E1/r:VendingMachine.Infrastructure" SourceId="46B3E11C-E66E-41D3-8ABB-BA74379109E1" Name="VendingMachine.Infrastructure" TargetId="46B0EFED-F385-43A3-8B38-A54048900E03" />
+  <Reference Identifier="92350943-E44F-43DA-9F37-7DD73572B4A1/r:VendingMachine.ConsoleApp" SourceId="92350943-E44F-43DA-9F37-7DD73572B4A1" Name="VendingMachine.ConsoleApp" TargetId="46B3E11C-E66E-41D3-8ABB-BA74379109E1" />
+  <Reference Identifier="92350943-E44F-43DA-9F37-7DD73572B4A1/r:VendingMachine.Application" SourceId="92350943-E44F-43DA-9F37-7DD73572B4A1" Name="VendingMachine.Application" TargetId="179EA6FA-53CE-4E94-950D-EC018BD2ABEA" />
+  <Reference Identifier="92350943-E44F-43DA-9F37-7DD73572B4A1/r:VendingMachine.Infrastructure" SourceId="92350943-E44F-43DA-9F37-7DD73572B4A1" Name="VendingMachine.Infrastructure" TargetId="46B0EFED-F385-43A3-8B38-A54048900E03" />
+  <Reference Identifier="0A8AC624-2614-4B8A-A76D-EF17BC45BA85/r:VendingMachine.Application" SourceId="0A8AC624-2614-4B8A-A76D-EF17BC45BA85" Name="VendingMachine.Application" TargetId="179EA6FA-53CE-4E94-950D-EC018BD2ABEA" />
+  <Reference Identifier="3452786C-7A4F-4237-9B54-4E1B497000A4/r:VendingMachine.Infrastructure" SourceId="3452786C-7A4F-4237-9B54-4E1B497000A4" Name="VendingMachine.Infrastructure" TargetId="46B0EFED-F385-43A3-8B38-A54048900E03" />
+  <Reference Identifier="3452786C-7A4F-4237-9B54-4E1B497000A4/r:VendingMachine.Application" SourceId="3452786C-7A4F-4237-9B54-4E1B497000A4" Name="VendingMachine.Application" TargetId="179EA6FA-53CE-4E94-950D-EC018BD2ABEA" />
+</ArchitectureGraph>
