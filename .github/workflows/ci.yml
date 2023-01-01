@@ -31,13 +31,9 @@ jobs:
           dotnet build --configuration Release
 
       - name: Test
-        run: dotnet test src/VendingMachine.sln --logger "trx"
-
-      - name: Rename Test Results
         run: |
-          find src -name "*.trx" -print0 | while IFS= read -r -d '' file; do
-            mv "$file" "testresults/$(basename "$file" .trx)-$(dirname "$file" | sed 's/src\///g').trx"
-          done
+          cd src
+          dotnet test --results-directory testresults --logger "trx"
 
       - name: Upload dotnet test results
         uses: actions/upload-artifact@v3
