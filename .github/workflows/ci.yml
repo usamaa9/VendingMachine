@@ -32,7 +32,7 @@ jobs:
           dotnet test --logger "trx;LogFileName=testresults.trx"
 
       - name: Publish Test Results
-        uses: actions/upload-test-results@v2
+        uses: actions/upload-test-results@v3
         with:
           path: "**/TestResults/*.trx"
 
