@@ -19,7 +19,7 @@ jobs:
           wget -q https://dot.net/v1/dotnet-install.sh
           bash dotnet-install.sh -c Current
       - name: Install Dependencies
-        run: dotnet restore
+        run: dotnet restore src/VendingMachine.sln
       - name: Build
         run: dotnet build --path src --configuration Release
       - name: Test
