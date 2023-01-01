@@ -1,5 +1,7 @@
 # Vending Machine
 
+[![CI](https://github.com/usamaa9/VendingMachine/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/usamaa9/VendingMachine/actions/workflows/ci.yml)
+
 A .NET console application for a virtual vending machine. Implemented using the CQRS pattern with MediatR.
 
 ## Usage
