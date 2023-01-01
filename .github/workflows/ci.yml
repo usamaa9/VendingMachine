@@ -1,0 +1,26 @@
+name: .NET Console Application
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install .NET 7
+        run: |
+          wget -q https://dot.net/v1/dotnet-install.sh
+          bash dotnet-install.sh -c Current
+      - name: Install Dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release
+      - name: Test
+        run: dotnet test
