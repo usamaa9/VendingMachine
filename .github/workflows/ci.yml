@@ -29,6 +29,12 @@ jobs:
       - name: Test
         run: |
           cd src
-          dotnet test
-    - name: Set Status
-      run: echo "::set-output name=status::${{ job.status }}"
+          dotnet test --logger "trx;LogFileName=testresults.trx"
+
+      - name: Publish Test Results
+        uses: actions/upload-test-results@v2
+        with:
+          path: "**/TestResults/*.trx"
+
+      - name: Set Status
+        run: echo "::set-output name=status::${{ job.status }}"
