@@ -27,21 +27,21 @@ jobs:
         run: dotnet build src --configuration Release
 
       - name: Test
-        run: dotnet test src --results-directory testresults --logger:"xunit;LogFileName={assembly}.results.xml"
+        run: dotnet test src --results-directory test-results --logger:"xunit;LogFileName={assembly}.results.xml"
 
       - name: Upload dotnet test results
         uses: actions/upload-artifact@v3
         with:
           name: test-results
-          path: testresults/*.xml
+          path: test-results/*.xml
         # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
 
-      - name: Test Summary
-        uses: test-summary/action@v2
-        with:
-          paths: "testresults/*.xml"
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
+        with:
+          junit_files: "test-results/**.xml"
 
       - name: Set Status
         run: echo "::set-output name=status::${{ job.status }}"
