@@ -39,10 +39,13 @@ jobs:
             mv "$file" "testresults/$(basename "$file" .trx)-$(dirname "$file" | sed 's/src\///g').trx"
           done
 
-      - name: Publish Test Results
-        uses: actions/upload-test-results@v3
+      - name: Upload dotnet test results
+        uses: actions/upload-artifact@v3
         with:
-          path: "testresults/*.trx"
+          name: test-results
+          path: testresults/*.trx
+        # Use always() to always run this step to publish test results when there are test failures
+        if: ${{ always() }}
 
       - name: Set Status
         run: echo "::set-output name=status::${{ job.status }}"
