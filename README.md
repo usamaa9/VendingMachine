@@ -1,4 +1,4 @@
-# Vending Machine
+# 🛒Vending Machine
 
 [![CI](https://github.com/usamaa9/VendingMachine/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/usamaa9/VendingMachine/actions/workflows/ci.yml)
 
