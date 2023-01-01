@@ -21,6 +21,6 @@ jobs:
       - name: Install Dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet build --path src --configuration Release
       - name: Test
         run: dotnet test
