@@ -21,19 +21,13 @@ jobs:
           bash dotnet-install.sh -c Current
 
       - name: Install Dependencies
-        run: |
-          cd src
-          dotnet restore
+        run: dotnet restore src
 
       - name: Build
-        run: |
-          cd src
-          dotnet build --configuration Release
+        run: dotnet build src --configuration Release
 
       - name: Test
-        run: |
-          cd src
-          dotnet test --results-directory testresults --logger "trx"
+        run: dotnet test src --results-directory testresults --logger "trx"
 
       - name: Upload dotnet test results
         uses: actions/upload-artifact@v3
