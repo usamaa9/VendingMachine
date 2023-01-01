@@ -16,7 +16,7 @@ Otherwise, run the `app.bat` script. It assumes you have all the platform depend
 
 The code is written following the clean architecture principles mentioned in this [blog post](https://jasontaylor.dev/clean-architecture-getting-started/).
 
-![Architecture](images/architecture-diagram2.png)
+![Architecture](images/architecture-diagram3.png)
 
 ### Improvements and Considerations
 
