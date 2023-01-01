@@ -14,22 +14,35 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Install .NET 7
         run: |
           wget -q https://dot.net/v1/dotnet-install.sh
           bash dotnet-install.sh -c Current
+
       - name: Install Dependencies
         run: |
           cd src
           dotnet restore
+
       - name: Build
         run: |
           cd src
           dotnet build --configuration Release
+
       - name: Test
+        run: dotnet test src/VendingMachine.sln --logger "trx"
+
+      - name: Rename Test Results
         run: |
-          cd src
-          dotnet test --logger "trx;LogFileName=testresults.trx"
+          find src -name "*.trx" -print0 | while IFS= read -r -d '' file; do
+            mv "$file" "testresults/$(basename "$file" .trx)-$(dirname "$file" | sed 's/src\///g').trx"
+          done
+
+      - name: Publish Test Results
+        uses: actions/upload-test-results@v3
+        with:
+          path: "testresults/*.trx"
 
       - name: Set Status
         run: echo "::set-output name=status::${{ job.status }}"
